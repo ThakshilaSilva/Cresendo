@@ -2,7 +2,7 @@
 include "connect.php";
 $con = connect();
 #$instruments = get_instrument($con);
-include "../Inc/instrument.php";
+include "../inc/instrument.php";
 $instruments = get_instrument($con);
 
 
