@@ -1,17 +1,12 @@
 <?php
-
 include "connect.php";
 $con = connect();
-
-?>
-/*include "connect.php";
-$con = connect();
-include "inc/instrument.php";
+#$instruments = get_instrument($con);
+include "../Inc/instrument.php";
 $instruments = get_instrument($con);
 
 
-
-*/?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -52,7 +47,7 @@ $NAME=$_SESSION['NAME'];
 
 
 
-<form class="form-details" method="get" action="instrument_class.php">
+<form class="form-details" method="get" action="view-class.php">
 
     <div class="form-log-in-with-email">
 
@@ -64,37 +59,44 @@ $NAME=$_SESSION['NAME'];
 
             <div class="form-row">
                 <label>
-                    <span>Class :</span>
-                    <input type="number" name="class" autocomplete="off" required>
+                    <span>Year :</span>
+                    <input type="number" name="Year" autocomplete="off" required>
                 </label>
+            </div>
 
-                <!-- <div class="form-row">
+            <div class="form-row">
+                <label>
+                    <span>Term :</span>
+                    <input type="number" name="Term" autocomplete="off" required>
+                </label>
+            </div>
+            <div class="form-row">
                 <label>
                     <span>Instrument</span>
                     <input type="=text" list="instruments" name="instrument" id="instrument" autocomplete="off" required/>
                     <datalist id="instruments">
-                        <?php /*for ($j = 0 ; $j< sizeof($instruments); $j++):*/?>
-                            <option> <?php /*echo $instruments[$j];*/?></option>
-                        <?php /*endfor;*/?>
+                        <?php for ($j = 0 ; $j< sizeof($instruments); $j++):?>
+                            <option> <?php echo $instruments[$j];?></option>
+                        <?php endfor;?>
 
                     </datalist>
 
 
                 </label>
-            </div>-->
-
-
-
-
-                <div class="form-row">
-                    <button type="submit" name="View_Class"> View Class</button>
-                </div>
-                <!--<p ALIGN="RIGHT"> <a href="main_admin_window.php" id="goback">>Go Back<</a></p>-->
             </div>
 
 
 
+
+            <div class="form-row">
+                <button type="submit" name="View_Class"> View Class</button>
+            </div>
+            <p ALIGN="RIGHT"> <a href="main_admin_window.php" id="goback">>Go Back<</a></p>
         </div>
+
+
+
+    </div>
 
 </form>
 </body>
