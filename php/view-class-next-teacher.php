@@ -43,7 +43,7 @@ $NAME=$_SESSION['NAME'];*/
 </header>
 
 
-<form class="view class" method="get" action="class-details.php">
+<form class="view class" method="get" action="class-details-teacher.php">
 
 
 
@@ -60,7 +60,9 @@ $NAME=$_SESSION['NAME'];*/
                     <input type="=text" list="classes" name="class" id="class" autocomplete="off" required/>
                     <datalist id="classes">
                         <?php for ($j = 0 ; $j< sizeof($classes); $j++):?>
-                            <option> <?php echo $classes[$j];?></option>
+                            <option> <?php echo 'class-'.($j+1);?></option>
+
+
                         <?php endfor;?>
 
                     </datalist>
@@ -70,7 +72,7 @@ $NAME=$_SESSION['NAME'];*/
             <div class="form-row">
                 <button type="submit" name="View_Details"> View Details</button>
             </div>
-            <p ALIGN="RIGHT"> <a href="view_class_details.php" id="goback">>Go Back<</a></p>
+            <p ALIGN="RIGHT"> <a href="select-class-teacher.php" id="goback">[Back]</a></p>
 
 
         </div>
