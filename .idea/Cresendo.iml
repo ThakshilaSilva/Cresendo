@@ -4,23 +4,12 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="PHP Runtime" type="php">
-        <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
-        </CLASSES>
-        <SOURCES>
-          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
-        </SOURCES>
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="jQuery UI-1.10.2" level="application" />
+    <orderEntry type="library" name="jquery-1.0.1" level="application" />
+    <orderEntry type="library" name="jquery-1.8.0" level="application" />
     <orderEntry type="library" name="jquery-1.9.1" level="application" />
     <orderEntry type="library" name="jQuery-2.0.0" level="application" />
     <orderEntry type="library" name="jquery-ui" level="application" />
-    <orderEntry type="library" name="Knockout-2.2.1" level="application" />
-    <orderEntry type="library" name="Prototype-1.7.1" level="application" />
-    <orderEntry type="library" name="script.aculo.us-1.9.0" level="application" />
   </component>
 </module>

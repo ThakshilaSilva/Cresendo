@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{Knockout-2.2.1, Prototype-1.7.1, jQuery UI-1.10.2, jQuery-2.0.0, jquery, jquery-1.9.1, jquery-ui, script.aculo.us-1.9.0}" />
-    <includedPredefinedLibrary name="ECMAScript 6" />
+    <file url="PROJECT" libraries="{jQuery UI-1.10.2, jQuery-2.0.0, jquery, jquery-1.0.1, jquery-1.8.0, jquery-1.9.1, jquery-ui}" />
     <includedPredefinedLibrary name="WebGL" />
   </component>
 </project>
