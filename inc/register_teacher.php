@@ -58,7 +58,7 @@ function operation($tp1,$tp2,$name1,$name2,$gender,$bday,$address,$province,$cit
             $stmt2->close();
 
 
-            #insert details to the tp_numbers of the student.
+            #insert details to the tp_numbers of the teacher.
 
             if ($tp1 != "") {
                 $stmt3 = $con->prepare("INSERT INTO tel_numbers (ID,TP) VALUES (?, ?)");
@@ -93,10 +93,8 @@ function operation($tp1,$tp2,$name1,$name2,$gender,$bday,$address,$province,$cit
                 echo "<script>window.open('main_admin_window.php','_self')</script>";
             }else{
                 mysqli_rollback($con);
+                echo "<script>alert('Error occur in Registration! Try Again!')</script>";
             }
-
-
-
         }
 
 
