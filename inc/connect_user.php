@@ -8,12 +8,12 @@ function connect($type)
     }elseif ($type=='B'){
         $pass='uomcse2';
     }
-    define('DB_HOST', 'localhost');
-    define('DB_NAME', 'db_group');
-    define('DB_USER',$type);
-    define('DB_PASSWORD',$pass);
-    $con=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysqli_error());
-    $db=mysqli_select_db($con,DB_NAME) or die("Failed to connect to MySQL: " . mysqli_error());
+    define('DB_HOST1', 'localhost');
+    define('DB_NAME1', 'db_group');
+    define('DB_USER1',$type);
+    define('DB_PASSWORD1',$pass);
+    $con=mysqli_connect(DB_HOST1,DB_USER1,DB_PASSWORD1) or die("Failed to connect to MySQL: " . mysqli_error());
+    $db=mysqli_select_db($con,DB_NAME1) or die("Failed to connect to MySQL: " . mysqli_error());
     return $con;
 }
 
