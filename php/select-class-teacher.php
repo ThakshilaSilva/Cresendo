@@ -47,7 +47,7 @@ $NAME=$_SESSION['NAME'];
 
 
 
-<form class="form-details" method="get" action="view-class.php">
+<form class="form-details" method="get" action="view-class-teacher.php">
 
     <div class="form-log-in-with-email">
 
@@ -91,7 +91,7 @@ $NAME=$_SESSION['NAME'];
             <div class="form-row">
                 <button type="submit" name="View_Class"> View Class</button>
             </div>
-            <p ALIGN="RIGHT"> <a href="main_admin_window.php" id="goback">>Go Back<</a></p>
+            <p ALIGN="RIGHT"> <a href="main_teacher_window.php" id="goback">[Back]</a></p>
         </div>
 
 
