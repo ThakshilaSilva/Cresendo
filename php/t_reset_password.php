@@ -33,7 +33,7 @@
         <div class="form-row">
             <label>
                 <span>Enter Current Password</span>
-                <input type="password" name="password" value="" oninvalid="this.setCustomValidity('Required!')" required oninput="setCustomValidity('')">
+                <input type="password" name="password"  oninvalid="this.setCustomValidity('Required!')" required oninput="setCustomValidity('')">
             </label>
         </div>
 
