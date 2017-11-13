@@ -11,7 +11,9 @@ html{
 
     font: bold 14px sans-serif;
     text-align: center;
+
 }
+
 
 .form-log-in-with-email{
     position: relative;
@@ -19,20 +21,55 @@ html{
     vertical-align: top;
     margin-right: 130px;
     text-align: center;
+
 }
+
 
 .form-log-in-with-email .form-white-background{
     width: 570px;
     box-sizing: border-box;
     background-color: #dbdbdb;
-
+    background-color: rgba(255,255,255,0.2);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     padding: 60px 80px;
     margin-bottom: 32px;
     margin-top: 60px;
-    margin-left: 390px;
+    margin-left: 455px;
+    border-radius: 8px;
+
+}
+
+
+.button_list{
+    width: 400px;
+    box-sizing: border-box;
+    background-color: #dbdbdb;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    padding: 60px 80px;
+    margin-bottom: 32px;
+    margin-top: -180px;
+    margin-left: 500px;
     border-radius: 8px;
 }
+
+.button_list1{
+    width: 400px;
+    box-sizing: border-box;
+    background-color: #dbdbdb;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    padding: 60px 80px;
+    margin-bottom: 32px;
+    margin-top: -805px;
+    margin-left: 1000px;
+    border-radius: 8px;
+}
+
+
+
+
+
 
 .form-log-in-with-email .form-row{
     text-align: left;

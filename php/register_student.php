@@ -55,6 +55,7 @@ $NAME=$_SESSION['NAME'];
     <p align="left"><a href="main_admin_window.php" id="logout">[back]</a></p>
     <P ALIGN="RIGHT"> logged in as : <?php  echo $NAME;?>  <a href="login.php" id="logout">(logout)</a></P>
     <h1>CRESCENDO MUSIC ACADEMY</h1>
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 
 </header>
 
