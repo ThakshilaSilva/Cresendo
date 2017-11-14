@@ -11,7 +11,7 @@ function fee($amount,$id,$Class_id,$month,$last_month,$type){
         }else{
             $type='I';
         }
-        $query2 = mysqli_query($con, "select Fee_Charge from student_charges where Class_Type='$type'");
+        $query2 = mysqli_query($con, "select Fee_Charge from Student_charges where Class_Type='$type'");
         if (!$query2) {
             die("database query failed." . mysqli_error($con));
         }
