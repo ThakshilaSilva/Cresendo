@@ -1,5 +1,10 @@
 <?php
-include "../inc/login.php";
+include "../inc/add_Instrument.php";
+session_start();
+$TYPE=$_SESSION['TYPE'];
+$USER=$_SESSION['USER'];
+$PASS=$_SESSION['PASS'];
+$NAME=$_SESSION['NAME'];
 
 ?>
 
@@ -25,9 +30,11 @@ include "../inc/login.php";
 
 
 <header id="header">
+    <p align="left"><a href="main_admin_window.php" id="logout">[back]</a></p>
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a> </p>
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
-     <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
-</header>`
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
+</header>
 
 <!-- You only need this form and the form-login.css -->
 
@@ -38,49 +45,31 @@ include "../inc/login.php";
         <div class="form-white-background">
 
             <div class="form-title-row">
-                <h1>Log in</h1>
+                <h1>Add Instrument</h1>
             </div>
 
             <div class="form-row">
                 <label>
-                    <span>User Name</span>
-                    <input type="text" name="username" required>
+                    <span>Instrument Name</span>
+                    <input type="text" name="instrument_name" required placeholder="Enter Instrument Name" autocomplete="off">
                 </label>
             </div>
 
             <div class="form-row">
-                <label>
-                    <span>Password</span>
-                    <input type="password" name="password" required>
-                </label>
+                <button type="submit" name="add">Add</button>
             </div>
-
-            <div class="form-row">
-                <button type="submit" name="login">Log in</button>
-            </div>
-
         </div>
-
-
-
     </div>
-
 </form>
+
+
 <?php
-if (isset($_POST['login'])){
-    $user=$_POST['username'];
-    $pass=($_POST['password']);
-    operation($user,$pass);
-
-
-
+if (isset($_POST['add'])){
+    $instrument_name=$_POST['instrument_name'];
+    operation($instrument_name);
 
 }
 
 ?>
-
-
-
 </body>
-
 </html>

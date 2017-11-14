@@ -40,6 +40,7 @@ include "../inc/register_teacher.php";
     <P ALIGN="RIGHT"> logged in as : <?php  echo $NAME;?> <a href="login.php" id="logout">(logout)</a></P>
 
     <h1>CRESCENDO MUSIC ACADEMY</h1>
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 
 </header>
 <body>
