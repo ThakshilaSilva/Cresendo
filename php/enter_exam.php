@@ -6,30 +6,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Enter Exam Details</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
 
     <link rel="stylesheet" href="../css/demo.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/form-basic.css">
+    <link rel="stylesheet" href="../css/new.css">
+    <title>Enter Exam Details</title>
 
 
-    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-     <script type="text/javascript" src="http://code.jquery.com/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
 
-     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+            //autocomplete
+            $(".auto1").autocomplete({
+                source: "../Inc/search_class.php",
+                minLength: 1
+            });
+        });
+    </script>
 
-     <script type="text/javascript">
-         $(function() {
-
-             //autocomplete
-             $(".auto1").autocomplete({
-                 source: "../inc/class_search_teacher",
-                 minLength: 1
-             });
-
-         });
-     </script>-->
 </head>
 <header>
     <h1>CRESCENDO MUSIC ACADEMY</h1>
@@ -92,16 +89,15 @@ if(isset($_GET["submit"])) {
 
     include "../inc/enter_exam.php";
 
-    $class_id = $_GET['class1'];
+    $class = $_GET['class1'];
     $date=$_GET['date'];
-    #$split_class = explode(" ", $class1);
-    #$exam_id=uniqid();
+    $split_class = explode(" ", $class1);
 
     /*$instrument = $split_class[0];
     $year1 = $split_class[4];
-    $term1 = $split_class[6];
-    $class_id1 = $split_class[8];
-    $type1 = $split_class[9];
+    $term1 = $split_class[6];*/
+    $class_id = $split_class[8];
+    /*$type1 = $split_class[9];
 
     $Exam_title = operationExam($class_id1,$instrument,$year1,$term1);
 
