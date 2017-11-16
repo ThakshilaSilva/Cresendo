@@ -1,8 +1,6 @@
 <?php
-include '../php/connect.php';
-function getdetails($id){
-    try {
-        $con = connect();
+
+function getdetails($id,$con){
 
         #teacher details
         $query = mysqli_query($con, "select FirstName,LastName,Gender,DoB,Address,Province,City from person where ID='$id'");
@@ -38,9 +36,6 @@ function getdetails($id){
         $con->close();
         $array=array($fname,$lname,$dob,$address,$province,$city,$gender,$ttp1,$ttp2);
         return $array;
-    }catch (mysqli_sql_exception $e){
-        echo "<script>alert('Error Occur in connecting to the Database!')</script>";
-    }
 
 }
 ?>

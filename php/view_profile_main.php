@@ -1,17 +1,8 @@
-<?php
-if (isset($_GET['edit_profile'])){
-    $student = $_GET['student'];
-    $split_class=explode(" ",$student);
-    $id= $split_class[2];
-    session_start();
-    $_SESSION['id']=$id;
-}
-
-?>
 <!DOCTYPE html>
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +12,10 @@ if (isset($_GET['edit_profile'])){
     <link rel="stylesheet" href="../css/form-basic.css">
     <link rel="stylesheet" href="../css/new.css">
 
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+
 </head>
 
 <header>
@@ -29,18 +24,13 @@ if (isset($_GET['edit_profile'])){
 </header>
 
 <div class="main-content">
+
     <div class="wrap-form">
-        <span>Student : <?php echo htmlspecialchars($student)?></span>
         <div class="wrap">
-            <a href="edit_student_detail.php" class="button">Student Details</a>
-            <a href="edit_parent_detail.php" class="button2">Parent Details</a>
-            <a href="edit_sibling_details.php" class="button2">Sibling Details</a>
+            <a href="t_view_details_main.php" class="button">Teacher</a>
+            <a href="s_view_details_main.php" class="button2">Student</a>
         </div>
     </div>
-
-
-
-
 </div>
 </body>
 </html>
