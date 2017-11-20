@@ -18,7 +18,7 @@
 
             //autocomplete
             $(".auto1").autocomplete({
-                source: "../Inc/search_class.php",
+                source: "../Inc/search_class_teacher.php",
                 minLength: 1
             });
         });
