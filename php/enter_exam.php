@@ -91,12 +91,13 @@ if(isset($_GET["submit"])) {
 
     $class = $_GET['class1'];
     $date=$_GET['date'];
-    $split_class = explode(" ", $class1);
+    $split_class = explode(" ", $class);
 
     /*$instrument = $split_class[0];
     $year1 = $split_class[4];
     $term1 = $split_class[6];*/
-    $class_id = $split_class[8];
+    $class_id = $split_class[13];
+    echo $class_id;
     /*$type1 = $split_class[9];
 
     $Exam_title = operationExam($class_id1,$instrument,$year1,$term1);

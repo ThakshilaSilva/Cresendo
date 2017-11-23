@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+
 <head>
 
     <meta charset="utf-8">
@@ -8,7 +11,7 @@
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/form-basic.css">
     <link rel="stylesheet" href="../css/new.css">
-    <title>Enter Exam Details</title>
+    <title>View Classroom Details</title>
 
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -18,16 +21,14 @@
 
             //autocomplete
             $(".auto1").autocomplete({
-                source: "../Inc/search_class.php",
+                source: "../Inc/search_classroom.php",
                 minLength: 1
             });
         });
     </script>
 
 </head>
-
 <header>
-    <!--<p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?></p>-->
     <h1>CRESCENDO MUSIC ACADEMY</h1>
 
 </header>
@@ -36,36 +37,29 @@
 <div class="main-content">
 
 
-    <form class="form-basic"  method="get" action="view_results.php">
+    <form class="form-basic"  method="get" action="view_room_details.php">
 
         <div class="form-title-row">
-            <h1>View Results</h1>
+            <h1>Class Room Details</h1>
         </div>
 
         <div class="form-row">
             <label>
-                <span>Class :</span>
+                <span>Class room :</span>
                 <input type="text" name="class1" class="auto1" required >
             </label>
         </div>
 
         <div class="form-row">
-            <label>
-                <span>Exam Title:</span>
-                <select name="ETitle" value="ETitle" required>
-                    <option>Exam-1</option>
-                    <option>Exam-2</option>
-                    <option>Exam-Final</option>
-                </select>
-            </label>
+            <button type="submit" name="submit"> View</button>
         </div>
 
-        <div class="form-row">
-            <button type="submit" name="submit">View Results</button>
-        </div>
 
     </form>
 </div>
 
-</body>
 
+
+<body>
+
+</html>
