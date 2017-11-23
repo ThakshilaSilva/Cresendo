@@ -1,7 +1,7 @@
 <?php
-    $t_id='150232T';
-    $t_name='Janaka';
     session_start();
+    $t_id=$_SESSION['USER'];
+    $t_name=$_SESSION['NAME'];
     $_SESSION['t_id']=$t_id;
 ?>
 <!DOCTYPE html>

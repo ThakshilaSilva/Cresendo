@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{bootstrap, jQuery UI-1.10.2, jQuery-2.0.0, jquery, jquery-1.9.1, jquery-ui}" />
+    <file url="PROJECT" libraries="{bootstrap, canvasjs, jQuery UI-1.10.2, jQuery-2.0.0, jquery, jquery-1.11.1, jquery-1.9.1, jquery-ui, jquery.canvasjs}" />
     <includedPredefinedLibrary name="WebGL" />
   </component>
 </project>
