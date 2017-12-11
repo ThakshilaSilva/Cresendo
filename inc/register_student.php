@@ -28,9 +28,16 @@ function operation($tp1,$tp2,$p1tp1,$p1tp2,$p2tp2,$p2tp1,$name1,$name2,$gender,$
             mysqli_autocommit($con, false);
 
 
-            $result1= mysqli_query($con, "SELECT COUNT(ID) as total FROM Person");
+            /*$result1= mysqli_query($con, "SELECT COUNT(ID) as total FROM Person");
+            $data = mysqli_fetch_assoc($result1);
+            $_id = $data['total'] ;*/
+
+            $result1= mysqli_query($con, "SELECT Get_total() as total");
             $data = mysqli_fetch_assoc($result1);
             $_id = $data['total'] ;
+
+
+
             $len=strlen($_id);
             $_id1=str_repeat('0',4-$len);
             $id=$year.$_id1.$_id.$pre;

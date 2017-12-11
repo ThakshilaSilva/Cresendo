@@ -6,7 +6,10 @@ $PASS=$_SESSION['PASS'];
 $NAME=$_SESSION['NAME'];
 
 
-
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
 
 ?>
 
@@ -155,11 +158,11 @@ $NAME=$_SESSION['NAME'];
                 </div>
 
                 <div class="form-row">
-                    <a href="fee_payments.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                    <a href="Analysis.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Distribution Analysis'></a>
                 </div>
 
                 <div class="form-row">
-                    <a href="Student_class_registration.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                    <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Certificate Generation'></a>
                 </div>
                 <div class="form-row">
                     <a href="fee_list.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>

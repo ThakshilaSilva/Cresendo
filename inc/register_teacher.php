@@ -15,9 +15,14 @@ function operation($tp1,$tp2,$name1,$name2,$gender,$bday,$address,$province,$cit
 
         mysqli_autocommit($con, false);
 
-        $result1= mysqli_query($con, "SELECT COUNT(ID) as total FROM Person");
+       /* $result1= mysqli_query($con, "SELECT COUNT(ID) as total FROM Person");
+        $data = mysqli_fetch_assoc($result1);
+        $_id = $data['total'] ;*/
+
+        $result1= mysqli_query($con, "SELECT Get_total() as total");
         $data = mysqli_fetch_assoc($result1);
         $_id = $data['total'] ;
+
         $len=strlen($_id);
         $_id1=str_repeat('0',4-$len);
         $id=$year.$_id1.$_id.$pre;
@@ -74,8 +79,9 @@ function operation($tp1,$tp2,$name1,$name2,$gender,$bday,$address,$province,$cit
             }
 
             $pass='crescendo';
-            $stmt5 = $con->prepare("INSERT INTO User(U_ID,password,UType) VALUES (?, ?, ?)");
-            $stmt5->bind_param("sss", $id, $pass,$type);
+            $key='music';
+            $stmt5 = $con->prepare("INSERT INTO User(U_ID,password,UType) VALUES (?, AES_ENCRYPT(?,?), ?)");
+            $stmt5->bind_param("ssss", $id, $pass,$key,$type);
             $result5=$stmt5->execute();
             $stmt5->close();
 
