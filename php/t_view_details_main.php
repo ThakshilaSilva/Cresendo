@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +16,16 @@
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
 
+            //autocomplete
+            $(".auto1").autocomplete({
+                source: "../Inc/search_teacher.php",
+                minLength: 1
+            });
+        });
+    </script>
 </head>
 
 <header>
@@ -24,16 +34,25 @@
 </header>
 
 <div class="main-content">
-        <div class="wrap-form">
-            <div class="wrap">
-                <a href="pay_salary.php" class="button">Pay Salary</a>
-                <a href="view_report.php" class="button2">Salary Details</a>
-                <a href="salary_chart.php" class="button2">Salary Report</a>
-            </div>
+    <form class="form-basic" method="get" action="t_view_details.php">
+        <div class="form-title-row">
+            <h1>Teacher</h1>
         </div>
+        <div class="form-row">
+            <label>
+                <span>Teacher Name :</span>
+                <input type="text" name="teacher" class="auto1" oninvalid="this.setCustomValidity('Required!')" required oninput="setCustomValidity('')"/>
+            </label>
+        </div>
+
+        <div class="form-row">
+            <button type="submit" name="view_details" >View Details</button>
+        </div>
+    </form>
+
+
 </div>
 </body>
 </html>
-
 
 

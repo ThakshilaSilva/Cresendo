@@ -1,8 +1,14 @@
 <?php
+include '../php/connect.php';
+try {
+    $con = connect();
+}catch (mysqli_sql_exception $e){
+    echo "<script>alert('Error Occur in connecting to the Database!')</script>";
+}
     session_start();
     $id=$_SESSION['id'];
     include '../inc/get_student_detials.php';
-    $details=getdetails($id);
+    $details=getdetails($id,$con);
     $_SESSION['tp1']=$details[7];
     $_SESSION['tp2']=$details[8];
 

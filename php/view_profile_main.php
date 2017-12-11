@@ -24,13 +24,13 @@
 </header>
 
 <div class="main-content">
-        <div class="wrap-form">
-            <div class="wrap">
-                <a href="pay_salary.php" class="button">Pay Salary</a>
-                <a href="view_report.php" class="button2">Salary Details</a>
-                <a href="salary_chart.php" class="button2">Salary Report</a>
-            </div>
+
+    <div class="wrap-form">
+        <div class="wrap">
+            <a href="t_view_details_main.php" class="button">Teacher</a>
+            <a href="s_view_details_main.php" class="button2">Student</a>
         </div>
+    </div>
 </div>
 </body>
 </html>

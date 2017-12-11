@@ -32,8 +32,9 @@ if (isset($_GET['edit_profile'])){
     <div class="wrap-form">
         <span>Student : <?php echo htmlspecialchars($student)?></span>
         <div class="wrap">
-            <a href="edit_student_detail.php" class="button">Pay Salary</a>
-            <a href="edit_parent_detail.php" class="button2">View Reports</a>
+            <a href="edit_student_detail.php" class="button">Student Details</a>
+            <a href="edit_parent_detail.php" class="button2">Parent Details</a>
+            <a href="edit_sibling_details.php" class="button2">Sibling Details</a>
         </div>
     </div>
 

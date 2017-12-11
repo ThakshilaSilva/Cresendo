@@ -9,7 +9,9 @@ function amount($id,$Class_id,$month,$type){
         $result = mysqli_fetch_assoc($query1);
         $paid = $result['number'];
         #check whether payement has done before
+        session_start();
         if ($paid == 1) {
+            $_SESSION['last']=0;
             $amount = "You have already paid for the class";
         } else {
             mysqli_autocommit($con, false);
@@ -39,7 +41,6 @@ function amount($id,$Class_id,$month,$type){
             if (!$query2) {
                 die("database query failed." . mysqli_error($con));
             }
-            session_start();
             $_SESSION['last']=$last_month;
             $result2 = $query2->fetch_array();
             $fee=$result2["Fee_Charge"];
