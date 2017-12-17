@@ -3,12 +3,28 @@ include "connect.php";
 $con = connect();
 session_start();
 $Instrument=$_SESSION['instrument'];
+$TYPE=$_SESSION['TYPE'];
+$USER=$_SESSION['USER'];
+$PASS=$_SESSION['PASS'];
+$NAME=$_SESSION['NAME'];
+
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+
+$_SESSION['LOGIN_TIME']=time();
 
 if(isset($_GET['next2'])){
 
     $classes=$_SESSION['class'];
 
     $class=$_GET['class'];
+    if((substr($class,0,5))!='class'){
+        echo"<script>alert('Invalid Class')</script>";
+        echo "<script>window.open('certificate-select-class-next.php','_self') </script>";
+    }
+
 
     $Class_id = $classes[(int)$class[strlen($class) - 1]-1];
 
@@ -87,7 +103,10 @@ while($row = $result->fetch_assoc()) {
 if(isset($_GET['create'])) {
     if ($State == 'False') {
         $Name = $_GET['name'];
-
+        if(strlen($Name)<12) { //since always have length of index and two spaces
+            echo "<script>alert('Invalid Name')</script>";
+            echo "<script>window.open('generate-certificate.php','_self') </script>";
+        }
 
         require("../fpdf.php");
         $pdf = new FPDF();
@@ -155,9 +174,9 @@ if(isset($_GET['create'])) {
 
 
 <header id="header">
-    <!-- <p ALIGN="RIGHT"> Logged in as: <?php /*echo $NAME;*/?> <a href="login.php" id="logout">(logout)</a></p>-->
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
-    <!--  <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 </header>
 
 

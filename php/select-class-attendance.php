@@ -3,7 +3,22 @@
 include "../inc/connect.php";
 $con=connect();
 session_start();
-$Teacher_id='150231T';
+
+$TYPE=$_SESSION['TYPE'];
+$USER=$_SESSION['USER'];
+$PASS=$_SESSION['PASS'];
+$NAME=$_SESSION['NAME'];
+
+
+
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+
+$_SESSION['LOGIN_TIME']=time();
+
+$Teacher_id=$USER;
 
 
 $stmt=$con->prepare("SELECT Class_id FROM conduct WHERE Teacher_id=?");
@@ -32,8 +47,8 @@ $_SESSION['classes']=$classes;
 
     <title>Class Details</title>
 
-    <link rel="stylesheet" href="../css/demo1.css">
-    <link rel="stylesheet" href="../css/main1.css">
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/main.css">
 
 
 
@@ -46,9 +61,9 @@ $_SESSION['classes']=$classes;
 
 
 <header id="header">
-    <!-- <p ALIGN="RIGHT"> Logged in as: <?php /*echo $NAME;*/?> <a href="login.php" id="logout">(logout)</a></p>-->
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
-    <!--  <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 </header>
 
 

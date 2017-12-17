@@ -100,15 +100,12 @@ $NAME=$_SESSION['NAME'];
             <div class="form-row">
                 <a href="t_edit_profile_main.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' name='regbutton' value='Edit Profile'></a>
             </div>
-
-            <div class="form-row">
-                <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Mark Attendance'></a>
-            </div>
-
             <div class="form-row">
                 <a href="t_view_details.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Details'></a>
             </div>
-
+            <div class="form-row">
+                <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+            </div>
             <div class="form-row">
                 <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
             </div>
@@ -143,15 +140,15 @@ $NAME=$_SESSION['NAME'];
         <div class="button_list1">
 
             <div class="form-row">
-                <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' name='regbutton' value=''></a>
+                <a href="select-class-teacher.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' name='regbutton' value='View Class Details'></a>
             </div>
 
             <div class="form-row">
-                <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                <a href="select-class-attendance.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Mark Attendance(Student)'></a>
             </div>
 
             <div class="form-row">
-                <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                <a href="progress-select-instrument.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Progress'></a>
             </div>
 
             <div class="form-row">

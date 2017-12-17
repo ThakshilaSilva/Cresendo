@@ -1,7 +1,23 @@
 <?php
 include "connect.php";
 $con = connect();
+
 session_start();
+$TYPE=$_SESSION['TYPE'];
+$USER=$_SESSION['USER'];
+$PASS=$_SESSION['PASS'];
+$NAME=$_SESSION['NAME'];
+
+
+
+
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+
+$_SESSION['LOGIN_TIME']=time();
+
 $Instrument=$_SESSION['instrument'];
 
 if(isset($_GET['next2'])){
@@ -9,8 +25,13 @@ if(isset($_GET['next2'])){
     $classes=$_SESSION['class'];
 
     $class=$_GET['class'];
+    if((substr($class,0,5))!='class'){
+        echo"<script>alert('Error inserting data')</script>";
+        echo "<script>window.open('progress-select-class-next.php','_self') </script>";
+    }
 
     $Class_id = $classes[(int)$class[strlen($class) - 1]-1];
+
 
     $stmt1 = $con->prepare('select Active from class where Class_id=?');
     $stmt1->bind_param("s",$Class_id);
@@ -79,11 +100,12 @@ $stmt->bind_param("s",$Class_id);
 $stmt->execute();
 $result=$stmt->get_result();
 $names=array();
-
+$fnames=array();
 while($row = $result->fetch_assoc()) {
     $names[] = $row['FirstName'].' '.$row['LastName'].' '.$row['S_ID'];
+    $fnames[]=$row['FirstName'];
 }
-
+$_SESSION['firstnames']=$fnames;
 ?>
 
 
@@ -112,9 +134,9 @@ while($row = $result->fetch_assoc()) {
 
 
 <header id="header">
-    <!-- <p ALIGN="RIGHT"> Logged in as: <?php /*echo $NAME;*/?> <a href="login.php" id="logout">(logout)</a></p>-->
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
-    <!--  <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 </header>
 
 
