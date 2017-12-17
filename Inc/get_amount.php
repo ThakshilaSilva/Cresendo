@@ -49,7 +49,12 @@ function amount($id,$Class_id,$month,$type){
             }else {
                 $product=$month-$last_month;
                 $total=$fee*$product;
-                $amount="Last Payment has done for month ".$last_month." , "."Total amount need to pay: ".$total;
+                if($last_month==0){
+                    $amount="No payment has done before. Total amount need to pay is ".$total;
+                }else{
+                    $amount="Last Payment has done for month ".$last_month." , "."Total amount need to pay: ".$total;
+                }
+
             }
         }
         return $amount;

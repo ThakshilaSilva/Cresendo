@@ -33,7 +33,10 @@ if (isset($_GET['continue'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Fee payments</title>
+
     <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/form-basic.css">
+    <link rel="stylesheet" href="../css/new.css">
     <link rel="stylesheet" href="../css/main.css">
 </head>
 

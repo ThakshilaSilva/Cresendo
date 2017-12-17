@@ -117,20 +117,20 @@ $_SESSION['LOGIN_TIME']=time();
             </div>
 
             <div class="form-row">
-                <a href="fee_payments.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Fee Payments'></a>
+                <a href="fee_main.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Fee Payments'></a>
             </div>
 
             <div class="form-row">
                 <a href="Student_class_registration.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Register to Classes'></a>
             </div>
             <div class="form-row">
-                <a href="fee_list.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Fee Payments'></a>
+                <a href="salary_main.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Salary Payments'></a>
             </div>
             <div class="form-row">
                 <a href="view_results_admin.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Results'></a>
             </div>
             <div class="form-row">
-                <a href="Back-hoeSelection.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Edit Profile'></a>
+                <a href="edi" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Edit Profile'></a>
             </div>
             <div class="form-row">
                 <a href="add_Instrument.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Add Instrument'></a>
@@ -172,16 +172,16 @@ $_SESSION['LOGIN_TIME']=time();
                     <a href="add_building.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Add New Classroom'></a>
                 </div>
                 <div class="form-row">
-                    <a href="view_results_admin.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                    <a href="view_results_admin.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Results'></a>
                 </div>
                 <div class="form-row">
-                    <a href="Back-hoeSelection.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                    <a href="s_view_details_main.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Student Details'></a>
+                </div>
+                <div class="form-row">
+                    <a href="t_view_details_main.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Teacher Details'></a>
                 </div>
                 <div class="form-row">
                     <a href="add_Instrument.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
-                </div>
-                <div class="form-row">
-                    <a href="view_class_details.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
                 </div>
 
 

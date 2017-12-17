@@ -28,16 +28,13 @@ if (isset($_GET['get_report'])){
 
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/form-basic.css">
-
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <header>
     <h1>CRESCENDO MUSIC ACADEMY</h1>
 
 </header>
-
-<ul>
-</ul>
 
 
 <div class="main-content">

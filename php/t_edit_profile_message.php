@@ -30,7 +30,7 @@ if (isset($_GET['save'])){
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/form-basic.css">
     <link rel="stylesheet" href="../css/new.css">
-
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <header>
