@@ -72,13 +72,26 @@ $_SESSION['LOGIN_TIME']=time();
 
             if($arr){
                 while ($row = mysqli_fetch_array($arr)){
+
+                    if($row['Date']=='MO'){
+                        $d='Monday';
+                    }elseif ($row['Date']=='TU'){
+                        $d='Tuesday';
+                    }elseif ($row['Date']=='WE'){
+                        $d='Wednesday';
+                    }elseif ($row['Date']=='TH'){
+                        $d='Thursday';
+                    }elseif ($row['Date']=='FR'){
+                        $d='Friday';
+                    }
+
                     echo "<tr>";
                     echo "<td>".$row['Term']."</td>";
                     echo "<td>".$row['Year']."</td>";
                     #echo "<td>".$row['Class_type']."</td>";
                     echo "<td>".$row['Active']."</td>";
                     echo "<td>".$row['Title']."</td>";
-                    echo "<td>".$row['Date']."</td>";
+                    echo "<td>".$d."</td>";
                     echo "<td>".$row['Start_time']."</td>";
                     echo "<td>".$row['End_time']."</td>";
                     echo "<td>".$row['Teacher_id']."</td>";

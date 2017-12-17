@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $t_id=$_SESSION['USER'];
 $t_name=$_SESSION['NAME'];
@@ -12,7 +11,6 @@ if((time()-$_SESSION['LOGIN_TIME'])>1200){
 
 $_SESSION['LOGIN_TIME']=time();
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -56,10 +54,10 @@ $_SESSION['LOGIN_TIME']=time();
 <div class="main-content">
 
 
-    <form class="form-basic"  method="get" action="#">
+    <form class="form-basic"  method="get" action="enter_grades.php">
 
         <div class="form-title-row">
-            <h1>Enter Exam Details</h1>
+            <h1>Choose the Exam</h1>
         </div>
 
         <div class="form-row">
@@ -70,14 +68,19 @@ $_SESSION['LOGIN_TIME']=time();
         </div>
         <div class="form-row">
             <label>
-                <span>Date :</span>
-                <input type="date" name="date" required >
+                <span>Exam Title:</span>
+                <select name="ETitle" value="ETitle" required>
+                    <option>Exam-1</option>
+                    <option>Exam-2</option>
+                    <option>Exam-Final</option>
+                </select>
             </label>
         </div>
 
 
+
         <div class="form-row">
-            <button type="submit" name="submit">Enter Exam Details</button>
+            <button type="submit" name="submit">Choose Exam</button>
         </div>
 
 
@@ -87,38 +90,6 @@ $_SESSION['LOGIN_TIME']=time();
 
 
 <body>
-<?php
-/*
-session_start();
-$TYPE=$_SESSION['TYPE'];
-$USER=$_SESSION['USER'];
-$PASS=$_SESSION['PASS'];
-$NAME=$_SESSION['NAME'];
 
-*/
-?>
-
-
-<?php
-
-
-if(isset($_GET["submit"])) {
-
-    #$con=connect();
-
-    include "../inc/enter_exam.php";
-
-    $class = $_GET['class1'];
-    $date=$_GET['date'];
-    $split_class = explode(" ", $class);
-
-    $class_id = $split_class[13];
-
-
-
-    operationInsert($class_id,$date,$t_id);
-}
-?>
 <a href="main_teacher_window.php">Go Back to Home</a>
-
 </html>
