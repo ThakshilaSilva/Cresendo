@@ -18,6 +18,7 @@ function amount($id,$Class_id,$month,$type){
             #check for last Payment
 
             $month_query = mysqli_query($con, "SELECT Month from fee WHERE S_ID='$id' AND Class_id='$Class_id'");
+
             if (!$month_query) {
                 die("database query failed." . mysqli_error($con));
             }

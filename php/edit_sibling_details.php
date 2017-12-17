@@ -17,7 +17,13 @@
         $_SESSION['sib1']=$detail4[2];
         $_SESSION['sib2']=$detail5[2];
     }
+$NAME=$_SESSION['NAME'];
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
 
+$_SESSION['LOGIN_TIME']=time();
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +65,9 @@
 </head>
 
 <header>
-    <h1>CRESCENDO MUSIC ACADEMY</h1>
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
+    <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 
 </header>
 

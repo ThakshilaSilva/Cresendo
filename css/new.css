@@ -1,14 +1,15 @@
 .wrap-form{
     padding: 30px;
     max-width: 480px;
-    background-color: #8899b1;
+    background-color: #ffffff;
     margin: 0 auto;
     height: 400px;
 }
+
 .main-content .wrap-form .mes{
     padding: 30px;
     max-width: 1200px;
-    background-color: #4c565e;
+    background-color: #ffffff;
     margin: 0 auto;
     height: 40px;
 }
@@ -38,7 +39,6 @@ a {
 }
 
 a.button {
-
     color: rgba(30, 22, 54, 0.6);
     box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
 }
@@ -56,4 +56,8 @@ a.button2 {
 a.button2:hover {
     color: rgba(255, 255, 255, 0.85);
     box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+}
+
+.main-content  .trans{
+    background: rgba(255,255,255,0.2);
 }

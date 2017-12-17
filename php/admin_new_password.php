@@ -1,11 +1,12 @@
 <?php
 session_start();
-$id=$_SESSION['t_id'];
+$id=$_SESSION['USER'];
+$NAME=$_SESSION['NAME'];
 if((time()-$_SESSION['LOGIN_TIME'])>1200){
     echo"<script>alert('Session Timed out!')</script>";
     echo "<script>window.open('login.php','_self')</script>";
 }
-$NAME=$_SESSION['NAME'];
+
 $_SESSION['LOGIN_TIME']=time();
 ?>
 
@@ -27,7 +28,7 @@ $_SESSION['LOGIN_TIME']=time();
 <header>
     <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
-    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
+
 </header>
 
 <div class="main-content">
@@ -128,7 +129,7 @@ $_SESSION['LOGIN_TIME']=time();
 if (isset($_GET['reset'])){
     $pass1=$_GET['password1'];
     $pass2=$_GET['password2'];
-    include '../inc/t_reset_password.php';
+    include '../inc/a_reset_password.php';
     check_validity($id,$pass1,$pass2);
 
 }
