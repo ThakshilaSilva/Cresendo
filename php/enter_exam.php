@@ -1,3 +1,17 @@
+<?php
+session_start();
+$t_id=$_SESSION['USER'];
+$t_name=$_SESSION['NAME'];
+$_SESSION['t_id']=$t_id;
+$NAME=$_SESSION['NAME'];
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+
+$_SESSION['LOGIN_TIME']=time();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -29,9 +43,13 @@
 
 </head>
 <header>
-    <h1>CRESCENDO MUSIC ACADEMY</h1>
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
+
+    <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 
 </header>
+
 
 <body>
 <div class="main-content">
@@ -93,20 +111,13 @@ if(isset($_GET["submit"])) {
     $date=$_GET['date'];
     $split_class = explode(" ", $class);
 
-    /*$instrument = $split_class[0];
-    $year1 = $split_class[4];
-    $term1 = $split_class[6];*/
     $class_id = $split_class[13];
-    echo $class_id;
-    /*$type1 = $split_class[9];
 
-    $Exam_title = operationExam($class_id1,$instrument,$year1,$term1);
 
-    #echo htmlspecialchars($Exam_title);*/
 
     operationInsert($class_id,$date);
 }
 ?>
-
+<a href="main_teacher_window.php">Go Back to Home</a>
 
 </html>
