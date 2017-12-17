@@ -15,7 +15,7 @@ if (isset($_GET['term'])){
         $conn = new PDO("mysql:host=".DB_SERVER.";port=3306;dbname=".DB_NAME, DB_USER, DB_PASSWORD);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $conn->prepare('SELECT * FROM extend_class WHERE Title LIKE :term ');
+        $stmt = $conn->prepare('SELECT * FROM extend_class WHERE Title LIKE :term AND Active=TRUE ');
         $stmt->execute(array('term' => '%'.$_GET['term'].'%'));
 
 

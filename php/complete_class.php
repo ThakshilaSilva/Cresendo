@@ -1,0 +1,104 @@
+<?php
+include "../inc/complete_class.php";
+session_start();
+$TYPE=$_SESSION['TYPE'];
+$USER=$_SESSION['USER'];
+$PASS=$_SESSION['PASS'];
+$NAME=$_SESSION['NAME'];
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+$_SESSION['LOGIN_TIME']=time();
+
+?>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Complete Class</title>
+
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        $(function() {
+
+            //autocomplete
+            $(".auto2").autocomplete({
+                source: "../inc/search_class.php",
+                minLength: 3
+            });
+
+        });
+    </script>
+</head>
+
+<header>
+    <p align="left"><a href="main_admin_window.php" id="logout">[back]</a></p>
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
+    <h1>CRESCENDO MUSIC ACADEMY</h1>
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
+
+</header>
+
+<body>
+<div class="main-content">
+
+
+    <form class="form-details"  method="post" action="#">
+        <div class="form-log-in-with-email">
+
+            <div class="form-white-background">
+                <div class="form-title-row">
+                    <h1>Class Completion</h1>
+                </div>
+
+
+
+                <div class="form-row">
+                    <label>
+                        <span>Class details</span>
+                        <input type="text" name="class" class="auto2" required placeholder="Enter Instrument Name" >
+                    </label>
+                </div>
+
+                <div class="form-row">
+                    <button type="submit" name="submit">Complete</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+</body>
+
+<?php
+if(isset($_POST['submit'])) {
+
+
+    $class = $_POST['class'];
+    operation($class);
+
+    #get the student id
+
+}
+
+
+?>
+
+
+
