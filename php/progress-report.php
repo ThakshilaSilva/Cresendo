@@ -36,6 +36,7 @@ $_SESSION['grade']=$Grade;
 $_SESSION['exam']=$Exam;
 $_SESSION['fname']=$FirstName;
 $_SESSION['lname']=$LastName;
+$_SESSION['sid']=$S_ID;
 }
 ?>
 <?php
@@ -45,6 +46,7 @@ $Exam=$_SESSION['exam'];
 $FirstName=$_SESSION['fname'];
 $LastName=$_SESSION['lname'];
 $Instrument=$_SESSION['instrument'];
+$S_ID=$_SESSION['sid'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,14 +62,26 @@ $Instrument=$_SESSION['instrument'];
 
     <div class="container">
         <h1 style="text-align: center"><strong>Progress Report </strong></h1>
-        <p style="font-size: 140%" align="center"><strong><?php echo $FirstName.' '.$LastName;?> </strong></p>
+        <p style="font-size: 140%" align="center"><strong><?php echo $FirstName.' '.$LastName.'-'.$S_ID;?> </strong></p>
         <p style="font-size: 140%" align="center"><strong><?php echo $Instrument.' '. 'Class';?> </strong></p>
         <?php $ar[]=array();?>
         <?php foreach($dic as $key => $value):?>
 
             <div class="progress">
                 <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow=<?php echo $value;?> aria-valuemin="100" aria-valuemax="100" style="width:<?php echo $value;?>%">
-                    <?php echo 'Marks for'.' '.$key." = ".$value; $ar[]=$value?>
+                    <?php
+
+                    echo 'Marks for'.' '.$key." = ".$value; $ar[]=$value;
+                    if($value>75){
+                        echo ' /Excellent marks with A pass';
+                    }
+                    else if($value>=65 and $value<75 or $value=75){
+                        echo ' /Good marks with B pass';
+
+                    }
+                    else if($value<65){
+                        echo ' /weak marks with C pass';
+                    }?>
 
 
                 </div>
@@ -78,6 +92,7 @@ $Instrument=$_SESSION['instrument'];
         <?php endforeach;?>
         <?php $size=sizeof($ar)-1;
         $total=array_sum($ar);
+
         $avg=$total/$size;?>
         <p style="font-size: 140%" align="left"><strong><?php echo 'Average marks='.number_format($avg,2,'.','');?> </strong></p>
         <p style="font-size: 140%" align="center"><strong><?php echo '';?> </strong></p>

@@ -74,14 +74,14 @@ if($State==0){
     $State='True';
 }*/
 
-$stmt=$con->prepare("SELECT FirstName,LastName FROM person WHERE ID in(SELECT S_ID from participate WHERE Class_id=?)");
+$stmt=$con->prepare("SELECT FirstName,LastName,S_ID FROM participate NATURAL JOIN person WHERE Class_id=? AND participate.S_ID=Person.ID;");
 $stmt->bind_param("s",$Class_id);
 $stmt->execute();
 $result=$stmt->get_result();
 $names=array();
 
 while($row = $result->fetch_assoc()) {
-    $names[] = $row['FirstName'].' '.$row['LastName'];
+    $names[] = $row['FirstName'].' '.$row['LastName'].' '.$row['S_ID'];
 }
 
 ?>
@@ -135,6 +135,7 @@ while($row = $result->fetch_assoc()) {
                     <span>Student Name :</span>
                     <input type="=text" list="names" name="name" id="name" autocomplete="off" required/>
                     <datalist id="names">
+
                         <?php for ($j = 0 ; $j< sizeof($names); $j++):?>
                             <option> <?php echo $names[$j];?></option>
 
