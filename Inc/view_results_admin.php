@@ -10,9 +10,13 @@ function operationResults(){
 
         $class1 = $_GET['class1'];
         $ETitle = $_GET['ETitle'];
+        $split_class = explode(" ", $class1);
+        $class_id = $split_class[13];
+
+
 
         $stmt2 = $con->prepare('select Exam_id from exam where Class_id=? AND Exam_Title=?');
-        $stmt2->bind_param("is", $class1,$ETitle);
+        $stmt2->bind_param("is", $class_id,$ETitle);
         $stmt2->execute();
         $stmt2->bind_result($Exam_id);
         $stmt2->fetch();

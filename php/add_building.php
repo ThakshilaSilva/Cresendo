@@ -1,5 +1,5 @@
 <?php
-include "../inc/add_Instrument.php";
+include "../inc/add_building.php";
 session_start();
 $TYPE=$_SESSION['TYPE'];
 $USER=$_SESSION['USER'];
@@ -50,13 +50,13 @@ $_SESSION['LOGIN_TIME']=time();
         <div class="form-white-background">
 
             <div class="form-title-row">
-                <h1>Add Instrument</h1>
+                <h1>Add New Classroom</h1>
             </div>
 
             <div class="form-row">
                 <label>
-                    <span>Instrument Name</span>
-                    <input type="text" name="instrument_name" required placeholder="Enter Instrument Name" autocomplete="off">
+                    <span>Room Capacity</span>
+                    <input type="number" name="room_capacity" required placeholder="Enter Room Capacity" autocomplete="off">
                 </label>
             </div>
 
@@ -70,8 +70,10 @@ $_SESSION['LOGIN_TIME']=time();
 
 <?php
 if (isset($_POST['add'])){
-    $instrument_name=$_POST['instrument_name'];
-    operation($instrument_name);
+    $room_capacity=$_POST['room_capacity'];
+    operation($room_capacity);
+
+    echo $room_capacity;
 
 }
 

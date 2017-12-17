@@ -5,6 +5,11 @@ $TYPE=$_SESSION['TYPE'];
 $USER=$_SESSION['USER'];
 $PASS=$_SESSION['PASS'];
 $NAME=$_SESSION['NAME'];
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+$_SESSION['LOGIN_TIME']=time();
 
 ?>
 <head>

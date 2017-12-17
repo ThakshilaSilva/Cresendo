@@ -7,7 +7,7 @@ function operation($user,$pass){
     #pass=md5($pass);
 
     try {
-        $stmt = $con->prepare("select UType,FirstName from person JOIN User ON person.ID=User.U_ID where ID=? AND password=?");
+        $stmt = $con->prepare("select UType,FirstName from person JOIN User ON person.ID=User.U_ID where ID=? AND AES_DECRYPT(password,'music')=?");
         $stmt->bind_param('ss', $user, $pass);
         $stmt->execute();
         $stmt->bind_result($type,$name);
@@ -21,6 +21,7 @@ function operation($user,$pass){
         $_SESSION['PASS']=$pass;
         $_SESSION['TYPE']=$type;
         $_SESSION['NAME']=$name;
+        $_SESSION['LOGIN_TIME']=time();
 
     } catch(Exception $e){
         echo"<script>alert('Error Connecting to Database!')</script>";

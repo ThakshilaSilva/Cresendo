@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <head>
 
     <meta charset="utf-8">
@@ -9,8 +6,8 @@
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
 
     <link rel="stylesheet" href="../css/demo.css">
-    <link rel="stylesheet" href="../css/main.css">
-
+    <link rel="stylesheet" href="../css/form-basic.css">
+    <link rel="stylesheet" href="../css/new.css">
     <title>Enter Exam Details</title>
 
 
@@ -21,14 +18,16 @@
 
             //autocomplete
             $(".auto1").autocomplete({
-                source: "../Inc/search_class.php",
+                source: "../Inc/search_class_teacher.php",
                 minLength: 1
             });
         });
     </script>
 
 </head>
+
 <header>
+    <!--<p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?></p>-->
     <h1>CRESCENDO MUSIC ACADEMY</h1>
 
 </header>
@@ -37,10 +36,10 @@
 <div class="main-content">
 
 
-    <form class="form-basic"  method="get" action="#">
+    <form class="form-basic"  method="get" action="view_results.php">
 
         <div class="form-title-row">
-            <h1>Enter Exam Details</h1>
+            <h1>View Results</h1>
         </div>
 
         <div class="form-row">
@@ -49,64 +48,24 @@
                 <input type="text" name="class1" class="auto1" required >
             </label>
         </div>
+
         <div class="form-row">
             <label>
-                <span>Date :</span>
-                <input type="date" name="date" required >
+                <span>Exam Title:</span>
+                <select name="ETitle" value="ETitle" required>
+                    <option>Exam-1</option>
+                    <option>Exam-2</option>
+                    <option>Exam-Final</option>
+                </select>
             </label>
         </div>
 
-
         <div class="form-row">
-            <button type="submit" name="submit">Enter Exam Details</button>
+            <button type="submit" name="submit">View Results</button>
         </div>
-
 
     </form>
 </div>
 
+</body>
 
-
-<body>
-<?php
-/*
-session_start();
-$TYPE=$_SESSION['TYPE'];
-$USER=$_SESSION['USER'];
-$PASS=$_SESSION['PASS'];
-$NAME=$_SESSION['NAME'];
-
-*/
-?>
-
-
-<?php
-
-
-if(isset($_GET["submit"])) {
-
-    #$con=connect();
-
-    include "../inc/enter_exam.php";
-
-    $class = $_GET['class1'];
-    $date=$_GET['date'];
-    $split_class = explode(" ", $class);
-
-    /*$instrument = $split_class[0];
-    $year1 = $split_class[4];
-    $term1 = $split_class[6];*/
-    $class_id = $split_class[13];
-    echo $class_id;
-    /*$type1 = $split_class[9];
-
-    $Exam_title = operationExam($class_id1,$instrument,$year1,$term1);
-
-    #echo htmlspecialchars($Exam_title);*/
-
-    operationInsert($class_id,$date);
-}
-?>
-
-
-</html>

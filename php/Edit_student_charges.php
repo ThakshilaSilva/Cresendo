@@ -5,6 +5,10 @@ $TYPE=$_SESSION['TYPE'];
 $USER=$_SESSION['USER'];
 $PASS=$_SESSION['PASS'];
 $NAME=$_SESSION['NAME'];
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
 
 #include "../inc/Teacher_class_Allocation.php";
 include "../inc/connect_user.php";
@@ -16,10 +20,10 @@ $type1="G";
 $amount_ad;
 $amount_fee1;
 
-$stmt3 = $con1->prepare("SELECT Fee_charge FROM Student_charges WHERE  Class_Type=?");
+$stmt3 = $con1->prepare("SELECT Fee_charge,Admission_Charge FROM Student_charges WHERE  Class_Type=?");
 $stmt3->bind_param("s", $type1);
 $stmt3->execute();
-$stmt3->bind_result($amount_fee1);
+$stmt3->bind_result($amount_fee1,$amount_ad);
 $stmt3->fetch();
 $stmt3->close();
 
