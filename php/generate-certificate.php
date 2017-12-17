@@ -60,19 +60,32 @@ $Class_id=$_SESSION['classid'];
 $Term=$_SESSION['Term'];
 $Year=$_SESSION['Year'];*/
 
-
-
+/*
+$stmt=$con->prepare("SELECT Active FROM class WHERE Class_id=?");
+$stmt->bind_param("s",$Class_id);
+$stmt->execute();
+$result=$stmt->get_result();
+$row = $result->fetch_assoc();
+$State=$row['Active'];
+if($State==0){
+    $State='False';
+}else{
+    $State='True';
+}*/
+echo $Class_id;
 $stmt=$con->prepare("SELECT FirstName,LastName FROM person WHERE ID in(SELECT S_ID from participate WHERE Class_id=?)");
 $stmt->bind_param("s",$Class_id);
 $stmt->execute();
 $result=$stmt->get_result();
 $names=array();
+
 while($row = $result->fetch_assoc()) {
     $names[] = $row['FirstName'].' '.$row['LastName'];
 }
-
+echo sizeof($names);
 if(isset($_GET['create'])) {
     if ($State == 'False') {
+        echo 'hiiii';
         $Name = $_GET['name'];
 
 
