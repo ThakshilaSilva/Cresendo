@@ -30,7 +30,7 @@ $con = connect();
     ?>
     <?php
 
-    if(isset($_GET['View_Class'])) {
+    if(isset($_GET['next1'])) {
         $Year=$_GET['Year'];
         $Term=$_GET['Term'];
         $Instrument=$_GET['instrument'];
@@ -43,28 +43,23 @@ $con = connect();
         $stmt->bind_param("sss",$Year,$Term,$Instrument);
         $stmt->execute();
         $result=$stmt->get_result();
+
         $classes=array();
         while($row = $result->fetch_assoc()) {
             $classes[] = $row['Class_id'];
         }
 
         $_SESSION['class']=$classes;
+        #$_SESSION['state']=$state;
         if(sizeof($classes)==0 ){
 
             echo "<script>alert('Invalid Class')</script>";
 
         }
         else{
-            echo "<script>window.open('view-class-next-admin.php','_self') </script>";
+            echo "<script>window.open('progress-select-class-next.php','_self') </script>";
             #header("view_class.php");die;
         }
-
-
-
-
-
-
-
     }
 
 

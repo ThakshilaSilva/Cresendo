@@ -23,8 +23,8 @@ $NAME=$_SESSION['NAME'];*/
 
     <title>Class Details</title>
 
-    <link rel="stylesheet" href="../css/demo.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/demo1.css">
+    <link rel="stylesheet" href="../css/main1.css">
 
 
 

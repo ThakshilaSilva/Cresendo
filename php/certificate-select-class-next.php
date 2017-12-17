@@ -6,7 +6,7 @@ $Year=$_SESSION['Year'];
 $classes=$_SESSION['class'];
 
 $_SESSION['instrument']=$Instrument;
-echo $Instrument;
+
 /*$TYPE=$_SESSION['TYPE'];
 $USER=$_SESSION['USER'];
 $PASS=$_SESSION['PASS'];
@@ -25,8 +25,8 @@ $NAME=$_SESSION['NAME'];*/
 
     <title>Class Details</title>
 
-    <link rel="stylesheet" href="../css/demo.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/demo1.css">
+    <link rel="stylesheet" href="../css/main1.css">
 
 
 

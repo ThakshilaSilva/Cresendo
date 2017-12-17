@@ -26,7 +26,7 @@ $_SESSION['LOGIN_TIME']=time();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Login</title>
+    <title>Main Window</title>
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/demo.css">
@@ -182,7 +182,7 @@ $_SESSION['LOGIN_TIME']=time();
                     <a href="t_view_details_main.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Teacher Details'></a>
                 </div>
                 <div class="form-row">
-                    <a href="add_Instrument.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                    <a href="complete_class.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Complete Class'></a>
                 </div>
 
 

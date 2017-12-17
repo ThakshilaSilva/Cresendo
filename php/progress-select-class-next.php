@@ -5,6 +5,8 @@ $Term=$_SESSION['Term'];
 $Year=$_SESSION['Year'];
 $classes=$_SESSION['class'];
 
+$_SESSION['instrument']=$Instrument;
+
 /*$TYPE=$_SESSION['TYPE'];
 $USER=$_SESSION['USER'];
 $PASS=$_SESSION['PASS'];
@@ -43,7 +45,7 @@ $NAME=$_SESSION['NAME'];*/
 </header>
 
 
-<form class="view class" method="get" action="class-details-admin.php">
+<form class="view class" method="get" action="view-progress.php">
 
 
 
@@ -52,7 +54,7 @@ $NAME=$_SESSION['NAME'];*/
         <div class="form-white-background">
 
             <div class="form-title-row">
-                <h1>Instrument Classes</h1>
+                <h1>View progress</h1>
             </div>
             <div class="form-row">
                 <label>
@@ -70,9 +72,9 @@ $NAME=$_SESSION['NAME'];*/
                 </label>
             </div>
             <div class="form-row">
-                <button type="submit" name="View_Details"> View Details</button>
+                <button type="submit" name="next2"> Next</button>
             </div>
-            <p ALIGN="RIGHT"> <a href="select-class-admin.php" id="goback">[Back]</a></p>
+            <p ALIGN="RIGHT"> <a href="select-class-teacher.php" id="goback">[Back]</a></p>
 
 
         </div>
