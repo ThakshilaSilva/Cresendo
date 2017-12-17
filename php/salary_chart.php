@@ -3,6 +3,7 @@
     $month=date('m');
     include '../Inc/get_total_salary.php';
     $salary=get_total_salary($year,$month);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/form-basic.css">
     <link rel="stylesheet" href="../css/new.css">
-
+    <link rel="stylesheet" href="../css/main.css">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
@@ -131,10 +132,12 @@
 </header>
 
 <div class="main-content">
-    <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
 
 </div>
 </body>

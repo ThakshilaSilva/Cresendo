@@ -1,5 +1,5 @@
 <?php
-include "connect.php";
+include "../inc/connect.php";
 $con = connect();
 #$instruments = get_instrument($con);
 include "../inc/instrument.php";

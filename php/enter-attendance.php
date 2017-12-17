@@ -20,30 +20,34 @@ if(isset($_GET['next'])) {
 
 
 
-    $stmt=$con->prepare("SELECT FirstName from person WHERE ID in (SELECT S_ID from participate WHERE Class_id=?)");
+    $stmt=$con->prepare("SELECT FirstName,ID from person WHERE ID in (SELECT S_ID from participate WHERE Class_id=?)");
     $stmt->bind_param("s",$class_id);
     $stmt->execute();
     $result=$stmt->get_result();
-    $names=array('Madushi','Sweena','Damindu');
+    $names=array('Madushi','Sweena','Damindu','Ruchiri','Thakshila','Winma');
+    $S_ID=array('150566K','150533L','150547T','150589H','150596C','150213D');
     while($row = $result->fetch_assoc()) {
         $names[] = $row['FirstName'];
+        $S_ID[]=$row['ID'];
+
 
 
 
     }
+    $_SESSION['SID']=$S_ID;
+    $_SESSION['na']=$names;
 
 }
 
 
 if(isset($_GET['Save'])){
     $date=$_GET['date'];
-    $st=$_GET['status'];
-    echo $st;
 
 
 
 
-    echo "<script>document.writeln(status.length);</script>";
+    $x="<script>document.writeln(Object.keys(x).length);</script>";
+    echo $x;
 
 
 
@@ -52,6 +56,8 @@ if(isset($_GET['Save'])){
     #echo "<script>window.open('view-class-next-admin.php','_self') </script>";
 
 }
+$S_ID=$_SESSION['SID'];
+$names=$_SESSION['na'];
 
 ?>
 
@@ -112,6 +118,7 @@ $NAME=$_SESSION['NAME'];
             </div>
             <table style="width:100%" id="attendance">
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Present</th>
                     <th>Absent</th>
@@ -120,10 +127,12 @@ $NAME=$_SESSION['NAME'];
 
                     for ($j = 0 ; $j< sizeof($names); $j++):?>
                         <tr>
-                        <td><?php echo $names[$j];?></td>
-                        <td><input type="radio" name="<?php echo $j?>" value="True" onchange="printvalue(this);"
+                            <td><?php echo $S_ID[$j];?></td>
+                            <td><?php echo $names[$j];?></td>
+                            <td><input type="radio" name="<?php echo $j?>" value="True" onchange="printvalue(this,'<?php echo $S_ID[$j]?>')"
                                    /></td>
-                        <td><input type="radio" name="<?php echo $j ?>" value="False " onchange="printvalue(this)"
+
+                            <td><input type="radio" name="<?php echo $j ?>" value="False " onchange="printvalue(this,'<?php echo $S_ID[$j];?>')"
                             /></td></tr>
 
 
@@ -145,18 +154,38 @@ $NAME=$_SESSION['NAME'];
 
 </form>
 <script type="text/javascript">
+    x={};
+    function printvalue( myradio,sid) {
+        //status.push("SADasd");
+       /* document.write(status2);
 
-
-    function printvalue(myradio) {
-
+        alert(status2.toString());*/
         //document.write(status);
-        r1=(myradio.value);
-        status=status.concat(r1).concat(' ');
-        alert(status);
-        return status;
+        var r1=(myradio.value);
+        var r2=sid;
+        alert(r2);
+        x[sid]=r1;
+        alert(Object.keys(x).length);
 
 
+        //document.write(r1);
+        /*status2=status2.concat(r1).concat(' ');
+        //alert(status);
+        return status2;
+*/
     }
+    dataString = ??? ; // array?
+    $.ajax({
+        type: "POST",
+        url: "script.php",
+        data: x,
+        cache: false,
+
+        success: function(){
+            alert("OK");
+        }
+    });
+
 
 //document.write(status,'fytf');
 </script>

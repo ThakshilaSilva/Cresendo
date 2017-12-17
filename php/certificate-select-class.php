@@ -39,7 +39,7 @@ $con = connect();
         $_SESSION['Year']=$Year;
         $_SESSION['Term']=$Term;
 
-        $stmt=$con->prepare("SELECT Class_id,Active FROM class WHERE Year=? AND Term=? AND Instrument_id in(select Instrument_id from instrument WHERE Title=?)");
+        $stmt=$con->prepare("SELECT Class_id FROM class WHERE Year=? AND Term=? AND Instrument_id in(select Instrument_id from instrument WHERE Title=?)");
         $stmt->bind_param("sss",$Year,$Term,$Instrument);
         $stmt->execute();
         $result=$stmt->get_result();
@@ -52,7 +52,7 @@ $con = connect();
 
 
         $_SESSION['class']=$classes;
-        $_SESSION['state']=$state;
+        #$_SESSION['state']=$state;
         if(sizeof($classes)==0 ){
 
             echo "<script>alert('Invalid Class')</script>";
