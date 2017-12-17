@@ -15,8 +15,8 @@ $con = connect();
 
     <title>Class Details</title>
 
-    <link rel="stylesheet" href="../css/demo.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/demo1.css">
+    <link rel="stylesheet" href="../css/main1.css">
 
     <?php
 
@@ -49,8 +49,6 @@ $con = connect();
             $classes[] = $row['Class_id'];
         }
 
-
-
         $_SESSION['class']=$classes;
         #$_SESSION['state']=$state;
         if(sizeof($classes)==0 ){
@@ -62,15 +60,6 @@ $con = connect();
             echo "<script>window.open('certificate-select-class-next.php','_self') </script>";
             #header("view_class.php");die;
         }
-
-
-
-
-
-
-
-
-
     }
 
 

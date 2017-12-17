@@ -23,7 +23,7 @@ if(isset($_GET['next2'])){
 
     }else{
         $State='False';
-        }
+    }
 
     $_SESSION['classid']=$Class_id;
     $_SESSION['state']=$State;
@@ -84,52 +84,9 @@ while($row = $result->fetch_assoc()) {
     $names[] = $row['FirstName'].' '.$row['LastName'];
 }
 
-if(isset($_GET['create'])) {
-    if ($State == 'False') {
-        $Name = $_GET['name'];
-
-
-        require("../fpdf.php");
-        $pdf = new FPDF();
-        $pdf->AddPage();
-        // Set font
-        // $pdf->SetDrawColor(0,80,180);
-        $pdf->SetFillColor(255, 255, 202);
-        $pdf->SetTextColor(100, 20, 28);
-
-
-// Centered text in a framed 20*10 mm cell and line break
-        /* $pdf->Cell(0,20,'  ',0,1,'C');
-         $pdf->Cell(0,10,'CRESCENDO MUSIC ACADEMY ',0,1,'C');*/
-
-
-        $pdf->SetFont('Times', 'B', 33);
-        $pdf->Cell(0, 40, "        ", 0, 1, 'C', '***1***');
-        $pdf->Cell(0, 30, 'CRESCENDO MUSIC ACADEMY', 0, 1, 'C', '***1***');
-        $pdf->Cell(0, 5, "        ", 0, 1, 'C', '***1***');
-        $pdf->SetFont('Times', 'B', 20);
-        $pdf->Cell(0, 20, "This is to certify that", 0, 1, 'C', '***1***');
-
-        $pdf->Cell(0, 20, "{$Name}", 0, 1, 'C', '***1***');
-        $pdf->Cell(0, 20, "has successfully completed the ", 0, 1, 'C', '***1***');
-
-        $pdf->Image('../img/abc.PNG', 10, 10, 190);
-        #$pdf->Image('../img/logo.jpg',162,10,38);
-        $pdf->Cell(0, 20, "{$Instrument} course", 0, 1, 'C', '***1***');
-        $pdf->Cell(0, 10, "at", 0, 1, 'C', '***1***');
-        $pdf->Cell(0, 20, " CRESCENDO Music Academy", 0, 1, 'C', '***1***');
-        $pdf->Cell(0, 40, "        ", 0, 1, 'C', '***1***');
-        $pdf->Cell(0, 5, "........................................", 0, 1, 'C', '***1***');
-        $pdf->SetFont('Times', 'B', 10);
-        $pdf->Cell(0, 5, "The Manager", 0, 1, 'C', '***1***');
-        $pdf->Cell(0, 5, "Crescendo Music Academy", 0, 1, 'C', '***1***');
-        $pdf->Cell(0, 25, " ", 0, 1, 'C', '***1***');
-        $pdf->Output();
-    } else {
-        echo "<script>alert('This class is not completed yet')</script>";
-    }
-}
 ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -137,7 +94,7 @@ if(isset($_GET['create'])) {
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="Generate Certificate" content="width=device-width, initial-scale=1">
+    <meta name="GView Progress" content="width=device-width, initial-scale=1">
 
     <title>Class Details</title>
 
@@ -161,7 +118,7 @@ if(isset($_GET['create'])) {
 </header>
 
 
-<form class="view class" method="get" action="#">
+<form class="view class" method="get" action="progress-report.php">
 
 
 
@@ -170,7 +127,7 @@ if(isset($_GET['create'])) {
         <div class="form-white-background">
 
             <div class="form-title-row">
-                <h1>Generate Certificate</h1>
+                <h1>View Progress</h1>
             </div>
 
             <div class="form-row">
@@ -189,7 +146,7 @@ if(isset($_GET['create'])) {
                 </label>
             </div>
             <div class="form-row">
-                <button type="submit" name="create"> Create Certificate</button>
+                <button type="submit" name="view"> View Progress</button>
             </div>
             <p ALIGN="RIGHT"> <a href="select-class-teacher.php" id="goback">[Back]</a></p>
 

@@ -1,17 +1,10 @@
 <?php
-include "../inc/connect.php";
+include "connect.php";
 $con = connect();
-session_start();
 #$instruments = get_instrument($con);
+include "../inc/instrument.php";
+$instruments = get_instrument($con);
 
-$stmt="SELECT FirstName, LastName, ID FROM person NATURAL JOIN teacher WHERE ID=T_ID ";
-$result = $con->query($stmt);
-
-$tnames=array();
-while($row = $result->fetch_assoc()) {
-    $tnames[] = $row['FirstName'].' '.$row['LastName'].'-'.$row['ID'];
-}
-$T_ID=$row['ID'];
 
 ?>
 
@@ -24,7 +17,7 @@ $T_ID=$row['ID'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>View Details</title>
+    <title>Select Instrument</title>
 
     <link rel="stylesheet" href="../css/demo1.css">
     <link rel="stylesheet" href="../css/main1.css">
@@ -54,24 +47,36 @@ $NAME=$_SESSION['NAME'];
 
 
 
-<form class="form-details" method="get" action="mark-attendance-teacher.php">
+<form class="form-details" method="get" action="progress-select-class.php">
 
     <div class="form-log-in-with-email">
 
         <div class="form-white-background">
 
             <div class="form-title-row">
-                <h1>Teacher Attendance</h1>
+                <h1>View Progress</h1>
             </div>
-
 
             <div class="form-row">
                 <label>
-                    <span>Teacher</span>
-                    <input type="=text" list="tnames" name="tname" id="tname" autocomplete="off" required/>
-                    <datalist id="tnames">
-                        <?php for ($j = 0 ; $j< sizeof($tnames); $j++):?>
-                            <option> <?php echo $tnames[$j];?></option>
+                    <span>Year :</span>
+                    <input type="number" name="Year" autocomplete="off" required>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Term :</span>
+                    <input type="number" name="Term" autocomplete="off" required>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Instrument</span>
+                    <input type="=text" list="instruments" name="instrument" id="instrument" autocomplete="off" required/>
+                    <datalist id="instruments">
+                        <?php for ($j = 0 ; $j< sizeof($instruments); $j++):?>
+                            <option> <?php echo $instruments[$j];?></option>
                         <?php endfor;?>
 
                     </datalist>
@@ -84,9 +89,9 @@ $NAME=$_SESSION['NAME'];
 
 
             <div class="form-row">
-                <button type="submit" name="next"> Next</button>
+                <button type="submit" name="next1"> Next</button>
             </div>
-            <p ALIGN="RIGHT"> <a href="main_admin_window.php" id="goback">[Back]</a></p>
+            <p ALIGN="RIGHT"> <a href="main_teacher_window.php" id="goback">[Back]</a></p>
         </div>
 
 
