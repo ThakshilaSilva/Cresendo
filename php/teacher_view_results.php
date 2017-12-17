@@ -1,8 +1,9 @@
 <?php
 #include "connect.php";
 #$con = connect();
-include "../inc/view_class_room_details.php";
+include "../inc/view_results_admin.php";
 ?>
+
 <?php
 session_start();
 $t_id=$_SESSION['USER'];
@@ -22,7 +23,7 @@ $_SESSION['LOGIN_TIME']=time();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Class Room Details</title>
+    <title>View Results</title>
 
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -37,29 +38,22 @@ $_SESSION['LOGIN_TIME']=time();
 
 </header>
 
+
 <body>
 <div class="main-content">
 
     <form class="form-basic">
 
         <div class="form-title-row">
-            <h1>Class Room Details</h1>
+            <h1>Results</h1>
         </div>
 
 
         <table border="=1" cellpadding="10" width="50%" >
 
             <tr>
-                <th>Term</th>
-                <th>Year</th>
-
-                <th>Active</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Teacher ID</th>
-
+                <th>Student_ID</th>
+                <th>Grade</th>
             </tr>
 
             <tbody>
@@ -67,21 +61,14 @@ $_SESSION['LOGIN_TIME']=time();
 
             <?php
 
-            $arr=getClassRoom();
+            $arr=operationResults();
+            $result=$arr[1];
 
-
-            if($arr){
-                while ($row = mysqli_fetch_array($arr)){
+            if($result){
+                while ($row = mysqli_fetch_array($result)){
                     echo "<tr>";
-                    echo "<td>".$row['Term']."</td>";
-                    echo "<td>".$row['Year']."</td>";
-                    #echo "<td>".$row['Class_type']."</td>";
-                    echo "<td>".$row['Active']."</td>";
-                    echo "<td>".$row['Title']."</td>";
-                    echo "<td>".$row['Date']."</td>";
-                    echo "<td>".$row['Start_time']."</td>";
-                    echo "<td>".$row['End_time']."</td>";
-                    echo "<td>".$row['Teacher_id']."</td>";
+                    echo "<td>".$row['Student_id']."</td>";
+                    echo "<td>".$row['Grade']."</td>";
                 }
             }
 
@@ -96,6 +83,7 @@ $_SESSION['LOGIN_TIME']=time();
     </form>
 </div>
 <a href="main_teacher_window.php">Go Back to Home</a>
+
 </body>
 
 
