@@ -31,7 +31,7 @@ if (isset($_GET['view'])) {
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/form-basic.css">
     <link rel="stylesheet" href="../css/new.css">
-
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <header>
@@ -79,11 +79,11 @@ if (isset($_GET['view'])) {
                 }echo htmlspecialchars($gender)?>
             </div>
             <div class="form-row">
-                <span>Contact No -1</span>
+                <span>Contact No -1 :</span>
                 <?php echo htmlspecialchars($details[7])?>
             </div>
             <div class="form-row">
-                <span>Contact No -2</span>
+                <span>Contact No -2 :</span>
                 <?php echo htmlspecialchars($details[8])?>
             </div>
             <div class="form-title-row">

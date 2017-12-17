@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/form-basic.css">
     <link rel="stylesheet" href="../css/new.css">
-
+    <link rel="stylesheet" href="../css/main.css">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
@@ -24,7 +24,7 @@
 </header>
 
 <div class="main-content">
-        <div class="wrap-form">
+        <div class="form-de">
             <div class="wrap">
                 <a href="pay_salary.php" class="button">Pay Salary</a>
                 <a href="view_report.php" class="button2">Salary Details</a>

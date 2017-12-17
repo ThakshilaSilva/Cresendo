@@ -50,7 +50,7 @@ $stmt4->close();
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Allocations</title>
+        <title>Edit</title>
 
         <link rel="stylesheet" href="../css/demo.css">
         <link rel="stylesheet" href="../css/main.css">
@@ -109,11 +109,6 @@ $stmt4->close();
                             <input type="number" name="amount_fee2" class="auto1" required  value="<?php echo $amount_fee2?>">
                         </label>
                     </div>
-
-
-
-
-
                     <div class="form-row">
                         <button type="submit" name="submit">Save Changes</button>
                     </div>
