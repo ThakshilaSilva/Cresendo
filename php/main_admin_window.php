@@ -169,7 +169,7 @@ $_SESSION['LOGIN_TIME']=time();
                     <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Certificate Generation'></a>
                 </div>
                 <div class="form-row">
-                    <a href="fee_list.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                    <a href="add_building.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Add New Classroom'></a>
                 </div>
                 <div class="form-row">
                     <a href="view_results_admin.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
