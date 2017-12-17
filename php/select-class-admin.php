@@ -4,7 +4,19 @@ $con = connect();
 #$instruments = get_instrument($con);
 include "../inc/instrument.php";
 $instruments = get_instrument($con);
+session_start();
+$TYPE=$_SESSION['TYPE'];
+$USER=$_SESSION['USER'];
+$PASS=$_SESSION['PASS'];
+$NAME=$_SESSION['NAME'];
 
+
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+
+$_SESSION['LOGIN_TIME']=time();
 
 ?>
 
@@ -19,8 +31,8 @@ $instruments = get_instrument($con);
 
     <title>View Details</title>
 
-    <link rel="stylesheet" href="../css/demo1.css">
-    <link rel="stylesheet" href="../css/main1.css">
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/main.css">
 
 
 
@@ -40,8 +52,9 @@ $NAME=$_SESSION['NAME'];
 */?>
 
 <header id="header">
-    <!--<p ALIGN="RIGHT"> Logged in as: <?php /*echo $NAME;*/?> <a href="login.php" id="logout">(logout)</a></p>-->
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
     <!--  <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
 </header>
 
