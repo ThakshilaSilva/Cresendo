@@ -14,7 +14,9 @@ html{
 
 }
 
-
+.container{
+    margin: auto;
+}
 .form-log-in-with-email{
     position: relative;
     display: inline-block;
