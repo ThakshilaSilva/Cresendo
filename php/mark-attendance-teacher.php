@@ -68,7 +68,6 @@ if(isset($_GET['save'])) {
     $Class_id=$_SESSION['classid'];
     $state = ($_GET['attendance']);
     $State = $state === 'True'? true: false;
-    echo $State;
 
     $stmt1 = $con->prepare("INSERT INTO tattendance (Teacher_id, Class_id, Date, State) VALUES (?, ?, ?, ?)");
     $stmt1->bind_param("ssss", $T_ID, $Class_id, $Date, $State);

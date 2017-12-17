@@ -3,7 +3,7 @@ include "connect.php";
 $con = connect();
 session_start();
 $Instrument=$_SESSION['instrument'];
-
+$Class_id=$_SESSION['classid'];
 
 if(isset($_GET['view'])){
 $Name = $_GET['name'];
@@ -18,9 +18,10 @@ $result=$stmt1->get_result();
 $row1=$result->fetch_assoc();
 $S_ID=$row1['S_ID'];
 
+
 $dic=array();
-$stmt3 = $con->prepare("SELECT Exam_Title,Grade from Grades NATURAL join Exam where Student_id=?");
-$stmt3->bind_param("s",$S_ID);
+$stmt3 = $con->prepare("SELECT Exam_Title,Grade from Grades NATURAL join Exam where Student_id=? and Class_id=?");
+$stmt3->bind_param("ss",$S_ID,$Class_id);
 $stmt3->execute();
 $stmt3->bind_result($Exam,$Grade);
 
@@ -37,6 +38,7 @@ $_SESSION['exam']=$Exam;
 $_SESSION['fname']=$FirstName;
 $_SESSION['lname']=$LastName;
 $_SESSION['sid']=$S_ID;
+$_SESSION['cid']=$Class_id;
 }
 ?>
 <?php
@@ -47,6 +49,7 @@ $FirstName=$_SESSION['fname'];
 $LastName=$_SESSION['lname'];
 $Instrument=$_SESSION['instrument'];
 $S_ID=$_SESSION['sid'];
+$Class_id=$_SESSION['cid'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,10 +95,12 @@ $S_ID=$_SESSION['sid'];
         <?php endforeach;?>
         <?php $size=sizeof($ar)-1;
         $total=array_sum($ar);
+        if($size!=0){
+        $avg=$total/$size;}else{$avg=0.00; echo 'No exams have conducted yet';}
+        ?>
 
-        $avg=$total/$size;?>
         <p style="font-size: 140%" align="left"><strong><?php echo 'Average marks='.number_format($avg,2,'.','');?> </strong></p>
-        <p style="font-size: 140%" align="center"><strong><?php echo '';?> </strong></p>
+
 
     </div>
 

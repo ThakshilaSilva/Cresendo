@@ -32,8 +32,8 @@ $_SESSION['classes']=$classes;
 
     <title>Class Details</title>
 
-    <link rel="stylesheet" href="../css/demo.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/demo1.css">
+    <link rel="stylesheet" href="../css/main1.css">
 
 
 
@@ -52,7 +52,7 @@ $_SESSION['classes']=$classes;
 </header>
 
 
-<form class="view class" method="get" action="enter-attendance.php">
+<form class="view class" method="get" action="select-student-attendnce.php">
 
 
 
