@@ -22,7 +22,7 @@ function operation($name1,$class){
         $term = $split_class[6];
         $Class_id = $split_class[13];
         $type=$split_class[11];
-        echo $type;
+       # echo $type;
 
 
         #check whether student has payed for the class.

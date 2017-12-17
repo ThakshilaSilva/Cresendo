@@ -181,7 +181,7 @@ $_SESSION['LOGIN_TIME']=time();
                     <a href="t_view_details_main.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Teacher Details'></a>
                 </div>
                 <div class="form-row">
-                    <a href="add_Instrument.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                    <a href="complete_class.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Complete Class'></a>
                 </div>
 
 
