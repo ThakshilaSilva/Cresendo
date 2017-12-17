@@ -20,7 +20,16 @@ if (isset($_GET['continue'])) {
 
     $amount=amount($id,$Class_id,$month,$type);
     $last_month=$_SESSION['last'];
+
 }
+
+$NAME=$_SESSION['NAME'];
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+
+$_SESSION['LOGIN_TIME']=time();
 ?>
 
 <!DOCTYPE html>
@@ -42,13 +51,14 @@ if (isset($_GET['continue'])) {
 
 
 <header>
-    <h1>CRESCENDO MUSIC ACADEMY</h1>
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
+    <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
 
 </header>
 
 
 <div class="main-content">
-
+    <a href="main_admin_window.php">Back to main</a>
     <form class="form-basic" method="get" action="fee_final.php">
         <div class="form-title-row">
             <h1>Payment Details</h1>

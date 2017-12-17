@@ -98,7 +98,7 @@ $NAME=$_SESSION['NAME'];
         <div class="button_list">
 
             <div class="form-row">
-                <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' name='regbutton' value='Edit Profile'></a>
+                <a href="t_edit_profile_main.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' name='regbutton' value='Edit Profile'></a>
             </div>
 
             <div class="form-row">
@@ -106,7 +106,7 @@ $NAME=$_SESSION['NAME'];
             </div>
 
             <div class="form-row">
-                <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
+                <a href="t_view_details.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Details'></a>
             </div>
 
             <div class="form-row">

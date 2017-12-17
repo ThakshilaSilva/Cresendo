@@ -5,19 +5,23 @@ $con = connect();
 }catch (mysqli_sql_exception $e){
     echo "<script>alert('Error Occur in connecting to the Database!')</script>";
 }
-if (isset($_GET['view_details'])) {
-    $teacher = $_GET['teacher'];
-    $split_class=explode(" ",$teacher);
-    $tfname= $split_class[0];
-    $tlname=$split_class[1];
-    $tid= $split_class[2];
+session_start();
+$TYPE=$_SESSION['TYPE'];
+$USER=$_SESSION['USER'];
+$PASS=$_SESSION['PASS'];
+$NAME=$_SESSION['NAME'];
+
     include '../inc/get_teacher details.php';
-    $details=getdetails($tid,$con);
+    $details=getdetails($USER,$con);
     include '../Inc/get_t_class_details.php';
-    $class=getclass($tid);
+    $class=getclass($USER);
+
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
 }
 
-
+$_SESSION['LOGIN_TIME']=time();
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +39,9 @@ if (isset($_GET['view_details'])) {
 </head>
 
 <header>
-    <h1>CRESCENDO MUSIC ACADEMY</h1>
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
+    <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 
 </header>
 
@@ -47,12 +53,9 @@ if (isset($_GET['view_details'])) {
                 <h1>Personal Details</h1>
             </div>
             <div class="form-row">
-                <label>First Name : <?php echo htmlspecialchars($tfname)?></label>
+                <label>Name : <?php echo htmlspecialchars($NAME)?></label>
             </div>
-            <div class="form-row">
-                <span>Last Name :</span>
-                <label for=""><?php echo htmlspecialchars($tlname)?></label>
-            </div>
+
             <div class="form-row">
                 <span>Date of Birth :</span>
                 <label for=""><?php echo htmlspecialchars($details[2])?></label>

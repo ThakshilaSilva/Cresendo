@@ -1,4 +1,13 @@
+<?php
+session_start();
+$NAME=$_SESSION['NAME'];
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
 
+$_SESSION['LOGIN_TIME']=time();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -39,43 +48,46 @@
 </head>
 
 <header>
-    <h1>CRESCENDO MUSIC ACADEMY</h1>
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
+    <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
 
 </header>
 
 <div class="main-content">
     <form class="form-basic" method="get" action="fee_details.php">
-        <div class="form-title-row">
-            <h1>Fee Payments</h1>
-        </div>
-        <div class="form-row">
-            <label>
-                <span>Student Name :</span>
-                <input type="text" name="student" class="auto1" />
-            </label>
-        </div>
-        <div class="form-row">
-            <label>
-                <span>Class :</span>
-                <input type="text" name="class" class="auto2" />
-            </label>
-        </div>
-        <div class="form-row">
-            <label>
-                <span>Month</span>
-                <select name="month" >
-                    <option value="1">Month1</option>
-                    <option value="2">Month2</option>
-                    <option value="3">Month3</option>
-                    <option value="4">Month4</option>
-                    <option value="5">Month5</option>
-                    <option value="6">Month6</option>
-                </select>
-            </label>
-        </div>
-        <div class="form-row">
-            <button type="submit" name="continue" >Continue</button>
-        </div>
+
+            <div class="form-title-row">
+                <h1>Fee Payments</h1>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Student Name :</span>
+                    <input type="text" name="student" class="auto1" oninvalid="this.setCustomValidity('Required!')" required oninput="setCustomValidity('')"/>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Class :</span>
+                    <input type="text" name="class" class="auto2" oninvalid="this.setCustomValidity('Required!')" required oninput="setCustomValidity('')"/>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>Month</span>
+                    <select name="month" oninvalid="this.setCustomValidity('Required!')" required oninput="setCustomValidity('')" >
+                        <option value="1">Month1</option>
+                        <option value="2">Month2</option>
+                        <option value="3">Month3</option>
+                        <option value="4">Month4</option>
+                        <option value="5">Month5</option>
+                        <option value="6">Month6</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-row">
+                <button type="submit" name="continue" >Continue</button>
+            </div>
+
     </form>
 
 
