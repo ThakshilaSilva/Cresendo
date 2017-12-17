@@ -6,7 +6,7 @@ function operation($room_capacity){
     try {
 
 
-             $id = uniqid();
+            $id = uniqid();
 
             $con = connect();
             $stmt = $con->prepare("INSERT INTO Class_room(Class_room_id,Capacity) VALUES (?,?)");
