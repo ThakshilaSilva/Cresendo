@@ -13,7 +13,7 @@ function operation($room_capacity){
         $result1= mysqli_query($con, "SELECT Get_total_rooms() as total");
         $data = mysqli_fetch_assoc($result1);
         $id = $data['total']+1 ;
-      
+
 
         $id='R'.$id;
 
