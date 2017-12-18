@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $t_id=$_SESSION['USER'];
 $t_name=$_SESSION['NAME'];
@@ -11,10 +10,7 @@ if((time()-$_SESSION['LOGIN_TIME'])>1200){
 }
 
 $_SESSION['LOGIN_TIME']=time();
-
-
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +24,7 @@ $_SESSION['LOGIN_TIME']=time();
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/main.css">
 
-    <title>Enter the class</title>
+    <title>Enter Exam Details</title>
 
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -38,7 +34,7 @@ $_SESSION['LOGIN_TIME']=time();
 
             //autocomplete
             $(".auto1").autocomplete({
-                source: "../Inc/search_class.php",
+                source: "../Inc/search_classroom.php",
                 minLength: 1
             });
         });
@@ -53,27 +49,25 @@ $_SESSION['LOGIN_TIME']=time();
 
 </header>
 
-
 <body>
 <div class="main-content">
 
 
-    <form class="form-basic"  method="get" action="view_list.php">
+    <form class="form-basic"  method="get" action="view_room_details.php">
 
         <div class="form-title-row">
-            <h1>Enter the Class</h1>
+            <h1>Class Room Details</h1>
         </div>
 
         <div class="form-row">
             <label>
-                <span>Class :</span>
+                <span>Class room :</span>
                 <input type="text" name="class1" class="auto1" required >
             </label>
         </div>
 
-
         <div class="form-row">
-            <button type="submit" name="submit">Enter Class</button>
+            <button type="submit" name="submit"> View</button>
         </div>
 
 
@@ -81,9 +75,7 @@ $_SESSION['LOGIN_TIME']=time();
 </div>
 
 
-
+<a href="main_admin_window.php">Go Back to Home</a>
 <body>
-
-<a href="main_teacher_window.php">Go Back to Home</a>
 
 </html>

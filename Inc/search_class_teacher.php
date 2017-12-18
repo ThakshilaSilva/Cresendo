@@ -12,11 +12,11 @@ if (isset($_GET['term'])){
     $year=date('Y');
 
     try {
-        $t_id="150231T";
+
         $conn = new PDO("mysql:host=".DB_SERVER.";port=3306;dbname=".DB_NAME, DB_USER, DB_PASSWORD);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $conn->prepare("SELECT * FROM extend_class WHERE Title LIKE :term AND Teacher_id='$t_id'");
+        $stmt = $conn->prepare("SELECT * FROM extend_class WHERE Title LIKE :term ");
         $stmt->execute(array('term' => '%'.$_GET['term'].'%'));
 
 
