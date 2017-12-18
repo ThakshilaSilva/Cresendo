@@ -158,6 +158,10 @@ $_SESSION['LOGIN_TIME']=time();
             <div class="button_list1">
 
                 <div class="form-row">
+                    <a href="progress-select-instrument.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Progress'></a>
+                </div>
+
+                <div class="form-row">
                     <a href="pay_register_fee.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' name='regbutton' value='Register Fee Payment'></a>
                 </div>
 
@@ -171,6 +175,9 @@ $_SESSION['LOGIN_TIME']=time();
 
                 <div class="form-row">
                     <a href="Analysis.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='Distribution Analysis'></a>
+                </div>
+                <div class="form-row">
+                    <a href="progress-select-instrument.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Progress'></a>
                 </div>
 
                 <div class="form-row">
@@ -192,12 +199,7 @@ $_SESSION['LOGIN_TIME']=time();
                 <div class="form-row">
                     <a href="select-class-admin.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Class Details'></a>
                 </div>
-                <div class="form-row">
-                    <a href="progress-select-instrument.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value='View Progress'></a>
-                </div>
-                <div class="form-row">
-                    <a href="" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' class='but1' name='regbutton' value=''></a>
-                </div>
+
 
 
             </div>
