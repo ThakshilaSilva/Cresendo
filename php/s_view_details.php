@@ -45,7 +45,7 @@ $_SESSION['LOGIN_TIME']=time();
 <header>
     <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
-    
+
 
 </header>
 

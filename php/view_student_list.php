@@ -1,5 +1,9 @@
 <?php
+
 session_start();
+$t_id=$_SESSION['USER'];
+$t_name=$_SESSION['NAME'];
+$_SESSION['t_id']=$t_id;
 $NAME=$_SESSION['NAME'];
 if((time()-$_SESSION['LOGIN_TIME'])>1200){
     echo"<script>alert('Session Timed out!')</script>";
@@ -7,7 +11,10 @@ if((time()-$_SESSION['LOGIN_TIME'])>1200){
 }
 
 $_SESSION['LOGIN_TIME']=time();
+
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -19,9 +26,10 @@ $_SESSION['LOGIN_TIME']=time();
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
 
     <link rel="stylesheet" href="../css/demo.css">
-    <link rel="stylesheet" href="../css/form-basic.css">
-    <link rel="stylesheet" href="../css/new.css">
     <link rel="stylesheet" href="../css/main.css">
+
+    <title>Enter the class</title>
+
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
@@ -30,39 +38,52 @@ $_SESSION['LOGIN_TIME']=time();
 
             //autocomplete
             $(".auto1").autocomplete({
-                source: "../Inc/search_teacher.php",
+                source: "../Inc/search_class.php",
                 minLength: 1
             });
         });
     </script>
-</head>
 
+</head>
 <header>
     <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
+
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 
 </header>
 
+
+<body>
 <div class="main-content">
-    <form class="form-basic" method="get" action="t_view_details.php">
+
+
+    <form class="form-basic"  method="get" action="view_list.php">
+
         <div class="form-title-row">
-            <h1>Teacher</h1>
+            <h1>Enter the Class</h1>
         </div>
+
         <div class="form-row">
             <label>
-                <span>Teacher Name :</span>
-                <input type="text" name="teacher" class="auto1" oninvalid="this.setCustomValidity('Required!')" required oninput="setCustomValidity('')"/>
+                <span>Class :</span>
+                <input type="text" name="class1" class="auto1" required >
             </label>
         </div>
 
+
         <div class="form-row">
-            <button type="submit" name="view_details" >View Details</button>
+            <button type="submit" name="submit">Enter Class</button>
         </div>
+
+
     </form>
-
-
 </div>
-</body>
+
+
+
+<body>
+
+<a href="main_teacher_window.php">Go Back to Home</a>
+
 </html>
-
-

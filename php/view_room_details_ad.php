@@ -108,7 +108,7 @@ $_SESSION['LOGIN_TIME']=time();
 
     </form>
 </div>
-<a href="main_teacher_window.php">Go Back to Home</a>
+<a href="main_admin_window.php">Go Back to Home</a>
 </body>
 
 
