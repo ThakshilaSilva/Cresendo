@@ -1,19 +1,4 @@
-<?php
-session_start();
-$t_id=$_SESSION['USER'];
-$t_name=$_SESSION['NAME'];
-$_SESSION['t_id']=$t_id;
-$NAME=$_SESSION['NAME'];
-if((time()-$_SESSION['LOGIN_TIME'])>1200){
-    echo"<script>alert('Session Timed out!')</script>";
-    echo "<script>window.open('login.php','_self')</script>";
-}
-
-$_SESSION['LOGIN_TIME']=time();
-?>
-<!DOCTYPE html>
 <html>
-
 <head>
 
     <meta charset="utf-8">
@@ -24,20 +9,13 @@ $_SESSION['LOGIN_TIME']=time();
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/main.css">
 
-    <title>Enter Exam Details</title>
+    <title>View Student list</title>
 
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
     <script type="text/javascript">
-        $(function() {
 
-            //autocomplete
-            $(".auto1").autocomplete({
-                source: "../Inc/search_classroom.php",
-                minLength: 1
-            });
-        });
     </script>
 
 </head>
@@ -48,34 +26,64 @@ $_SESSION['LOGIN_TIME']=time();
     <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 
 </header>
-
 <body>
 <div class="main-content">
 
-
-    <form class="form-basic"  method="get" action="view_room_details.php">
+    <form class="form-basic">
 
         <div class="form-title-row">
-            <h1>Class Room Details</h1>
+            <h1>Student List</h1>
         </div>
 
-        <div class="form-row">
-            <label>
-                <span>Class room :</span>
-                <input type="text" name="class1" class="auto1" required >
-            </label>
-        </div>
 
-        <div class="form-row">
-            <button type="submit" name="submit"> View</button>
-        </div>
+        <table border="=1" cellpadding="10" width="50%" >
 
+            <tr>
+                <th>Student_ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+
+            </tr>
+
+            <tbody>
+
+
+            <?php
+            include_once "../inc/student_list.php";
+            if(isset($_GET["submit"])) {
+
+                $class = $_GET['class1'];
+                $split_class = explode(" ", $class);
+
+                $class_id = $split_class[13];
+
+                $result = operationInsert($class_id);
+
+                if($result){
+                    while ($row = mysqli_fetch_array($result)){
+                        echo "<tr>";
+                        echo "<td>".$row['ID']."</td>";
+                        echo "<td>".$row['FirstName']."</td>";
+                        echo "<td>".$row['LastName']."</td>";
+
+
+                    }
+
+                }
+
+            }
+
+            ?>
+
+            </tbody>
+
+        </table>
 
     </form>
 </div>
 
-
+</body>
 <a href="main_teacher_window.php">Go Back to Home</a>
-<body>
-
 </html>
+
+

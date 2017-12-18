@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $t_id=$_SESSION['USER'];
 $t_name=$_SESSION['NAME'];
@@ -26,7 +25,7 @@ $_SESSION['LOGIN_TIME']=time();
     <link rel="stylesheet" href="../css/demo.css">
     <link rel="stylesheet" href="../css/main.css">
 
-    <title>Enter Exam Details</title>
+    <title>Enter the class</title>
 
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -56,10 +55,10 @@ $_SESSION['LOGIN_TIME']=time();
 <div class="main-content">
 
 
-    <form class="form-basic"  method="get" action="#">
+    <form class="form-basic"  method="get" action="view_list.php">
 
         <div class="form-title-row">
-            <h1>Enter Exam Details</h1>
+            <h1>Enter the Class</h1>
         </div>
 
         <div class="form-row">
@@ -68,16 +67,10 @@ $_SESSION['LOGIN_TIME']=time();
                 <input type="text" name="class1" class="auto1" required >
             </label>
         </div>
-        <div class="form-row">
-            <label>
-                <span>Date :</span>
-                <input type="date" name="date" required >
-            </label>
-        </div>
 
 
         <div class="form-row">
-            <button type="submit" name="submit">Enter Exam Details</button>
+            <button type="submit" name="submit">Enter Class</button>
         </div>
 
 
@@ -87,38 +80,7 @@ $_SESSION['LOGIN_TIME']=time();
 
 
 <body>
-<?php
-/*
-session_start();
-$TYPE=$_SESSION['TYPE'];
-$USER=$_SESSION['USER'];
-$PASS=$_SESSION['PASS'];
-$NAME=$_SESSION['NAME'];
 
-*/
-?>
-
-
-<?php
-
-
-if(isset($_GET["submit"])) {
-
-    #$con=connect();
-
-    include "../inc/enter_exam.php";
-
-    $class = $_GET['class1'];
-    $date=$_GET['date'];
-    $split_class = explode(" ", $class);
-
-    $class_id = $split_class[13];
-
-
-
-    operationInsert($class_id,$date,$t_id);
-}
-?>
 <a href="main_teacher_window.php">Go Back to Home</a>
 
 </html>

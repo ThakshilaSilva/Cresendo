@@ -2,25 +2,48 @@
 include "connect.php";
 $con = connect();
 session_start();
-$Instrument=$_SESSION['instrument'];
 
+$TYPE=$_SESSION['TYPE'];
+$USER=$_SESSION['USER'];
+$PASS=$_SESSION['PASS'];
+$NAME=$_SESSION['NAME'];
+
+
+
+
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+
+$_SESSION['LOGIN_TIME']=time();
+
+$Instrument=$_SESSION['instrument'];
+$Class_id=$_SESSION['classid'];
 
 if(isset($_GET['view'])){
 $Name = $_GET['name'];
+
+if(strlen($Name)<12){      // //since always have length of index and two spaces
+    echo "<script>alert('Invalid Name')</script>";
+    echo "<script>window.open('view-progress.php','_self') </script>";
+}
+
 $pieces = explode(" ", $Name);
 $FirstName=$pieces[0];
 $LastName=$pieces[1];
 
-$stmt1 = $con->prepare('SELECT S_ID FROM participate NATURAL JOIN Person WHERE FirstName=? and LastName=?');
+$stmt1 = $con->prepare('SELECT ID FROM Person WHERE FirstName=? and LastName=?');
 $stmt1->bind_param("ss",$FirstName,$LastName);
 $stmt1->execute();
 $result=$stmt1->get_result();
 $row1=$result->fetch_assoc();
-$S_ID=$row1['S_ID'];
+$S_ID=$row1['ID'];
+
 
 $dic=array();
-$stmt3 = $con->prepare("SELECT Exam_Title,Grade from Grades NATURAL join Exam where Student_id=?");
-$stmt3->bind_param("s",$S_ID);
+$stmt3 = $con->prepare("SELECT Exam_Title,Grade from Grades NATURAL join Exam where Student_id=? and Class_id=?");
+$stmt3->bind_param("ss",$S_ID,$Class_id);
 $stmt3->execute();
 $stmt3->bind_result($Exam,$Grade);
 
@@ -37,6 +60,7 @@ $_SESSION['exam']=$Exam;
 $_SESSION['fname']=$FirstName;
 $_SESSION['lname']=$LastName;
 $_SESSION['sid']=$S_ID;
+$_SESSION['cid']=$Class_id;
 }
 ?>
 <?php
@@ -47,6 +71,7 @@ $FirstName=$_SESSION['fname'];
 $LastName=$_SESSION['lname'];
 $Instrument=$_SESSION['instrument'];
 $S_ID=$_SESSION['sid'];
+$Class_id=$_SESSION['cid'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,9 +79,9 @@ $S_ID=$_SESSION['sid'];
 
 
 <header id="header">
-    <!-- <p ALIGN="RIGHT"> Logged in as: <?php /*echo $NAME;*/?> <a href="login.php" id="logout">(logout)</a></p>-->
-    <h1 style="text-align: center" ><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
-    <!--  <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
+    <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 </header>
 <form class="view class" method="get" action="#">
 
@@ -92,10 +117,12 @@ $S_ID=$_SESSION['sid'];
         <?php endforeach;?>
         <?php $size=sizeof($ar)-1;
         $total=array_sum($ar);
+        if($size!=0){
+        $avg=$total/$size;}else{$avg=0.00; echo 'No exams have conducted yet';}
+        ?>
 
-        $avg=$total/$size;?>
         <p style="font-size: 140%" align="left"><strong><?php echo 'Average marks='.number_format($avg,2,'.','');?> </strong></p>
-        <p style="font-size: 140%" align="center"><strong><?php echo '';?> </strong></p>
+
 
     </div>
 

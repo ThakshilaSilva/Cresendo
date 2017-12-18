@@ -20,14 +20,14 @@ if(isset($_GET['next'])) {
 
 
 
-    $stmt=$con->prepare("SELECT FirstName,ID from person WHERE ID in (SELECT S_ID from participate WHERE Class_id=?)");
+    $stmt=$con->prepare("SELECT FirstName,LastName,ID from person WHERE ID in (SELECT S_ID from participate WHERE Class_id=?)");
     $stmt->bind_param("s",$class_id);
     $stmt->execute();
     $result=$stmt->get_result();
-    $names=array('Madushi','Sweena','Damindu','Ruchiri','Thakshila','Winma');
-    $S_ID=array('150566K','150533L','150547T','150589H','150596C','150213D');
+    $names=array();
+    $S_ID=array();
     while($row = $result->fetch_assoc()) {
-        $names[] = $row['FirstName'];
+        $names[] = $row['FirstName'].' '.$row['LastName'];
         $S_ID[]=$row['ID'];
 
 
@@ -73,8 +73,8 @@ $names=$_SESSION['na'];
 
     <title>View Details</title>
 
-    <link rel="stylesheet" href="../css/demo.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/demo1.css">
+    <link rel="stylesheet" href="../css/main1.css">
 
 
 
@@ -174,8 +174,8 @@ $NAME=$_SESSION['NAME'];
         return status2;
 */
     }
-    dataString = ??? ; // array?
-    $.ajax({
+  //  dataString = ??? ; // array?
+    /*$.ajax({
         type: "POST",
         url: "script.php",
         data: x,
@@ -184,7 +184,7 @@ $NAME=$_SESSION['NAME'];
         success: function(){
             alert("OK");
         }
-    });
+    }*/);
 
 
 //document.write(status,'fytf');

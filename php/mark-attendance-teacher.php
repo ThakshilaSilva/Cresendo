@@ -2,6 +2,19 @@
 include "../inc/connect.php";
 $con = connect();
 session_start();
+
+$TYPE=$_SESSION['TYPE'];
+$USER=$_SESSION['USER'];
+$PASS=$_SESSION['PASS'];
+$NAME=$_SESSION['NAME'];
+
+
+if((time()-$_SESSION['LOGIN_TIME'])>1200){
+    echo"<script>alert('Session Timed out!')</script>";
+    echo "<script>window.open('login.php','_self')</script>";
+}
+
+$_SESSION['LOGIN_TIME']=time();
 #$instruments = get_instrument($con);
 if(isset($_GET['next'])){
 
@@ -68,14 +81,14 @@ if(isset($_GET['save'])) {
     $Class_id=$_SESSION['classid'];
     $state = ($_GET['attendance']);
     $State = $state === 'True'? true: false;
-    echo $State;
 
     $stmt1 = $con->prepare("INSERT INTO tattendance (Teacher_id, Class_id, Date, State) VALUES (?, ?, ?, ?)");
     $stmt1->bind_param("ssss", $T_ID, $Class_id, $Date, $State);
     $result1=$stmt1->execute();
     $stmt1->close();
+    echo "<script>alert('Data Inserted successfully')</script>";
 
-    echo "<script>window.open('select-teacher-attendance.php','_self') </script>";
+
 }
 /*
 session_start();
@@ -87,9 +100,9 @@ $NAME=$_SESSION['NAME'];
 */?>
 
 <header id="header">
-    <!--<p ALIGN="RIGHT"> Logged in as: <?php /*echo $NAME;*/?> <a href="login.php" id="logout">(logout)</a></p>-->
+    <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
-    <!--  <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
+    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
 </header>
 
 

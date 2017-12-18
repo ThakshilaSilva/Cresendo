@@ -4,18 +4,7 @@ $Instrument=$_SESSION['instrument'];
 $Term=$_SESSION['Term'];
 $Year=$_SESSION['Year'];
 $classes=$_SESSION['class'];
-$TYPE=$_SESSION['TYPE'];
-$USER=$_SESSION['USER'];
-$PASS=$_SESSION['PASS'];
-$NAME=$_SESSION['NAME'];
 
-
-if((time()-$_SESSION['LOGIN_TIME'])>1200){
-    echo"<script>alert('Session Timed out!')</script>";
-    echo "<script>window.open('login.php','_self')</script>";
-}
-
-$_SESSION['LOGIN_TIME']=time();
 /*$TYPE=$_SESSION['TYPE'];
 $USER=$_SESSION['USER'];
 $PASS=$_SESSION['PASS'];
@@ -48,13 +37,13 @@ $NAME=$_SESSION['NAME'];*/
 
 
 <header id="header">
-     <p ALIGN="RIGHT"> Logged in as: <?php echo $NAME;?> <a href="login.php" id="logout">(logout)</a></p>
+    <!-- <p ALIGN="RIGHT"> Logged in as: <?php /*echo $NAME;*/?> <a href="login.php" id="logout">(logout)</a></p>-->
     <h1 style="text-align: center"><strong>CRESCENDO MUSIC ACADEMY </strong></h1>
-    <span class="avatar"><img src="../img/logo.jpg" alt="" /></span>
+    <!--  <span class="avatar"><img src="images/avatar.jpg" alt="" /></span> -->
 </header>
 
 
-<form class="view class" method="get" action="class-details-admin.php">
+<form class="view class" method="get" action="class-details.php">
 
 
 
@@ -71,9 +60,7 @@ $NAME=$_SESSION['NAME'];*/
                     <input type="=text" list="classes" name="class" id="class" autocomplete="off" required/>
                     <datalist id="classes">
                         <?php for ($j = 0 ; $j< sizeof($classes); $j++):?>
-                            <option> <?php echo 'class-'.($j+1);?></option>
-
-
+                            <option> <?php echo $classes[$j];?></option>
                         <?php endfor;?>
 
                     </datalist>
@@ -83,7 +70,7 @@ $NAME=$_SESSION['NAME'];*/
             <div class="form-row">
                 <button type="submit" name="View_Details"> View Details</button>
             </div>
-            <p ALIGN="RIGHT"> <a href="select-class-admin.php" id="goback">[Back]</a></p>
+            <p ALIGN="RIGHT"> <a href="view_class_details.php" id="goback">>Go Back<</a></p>
 
 
         </div>
