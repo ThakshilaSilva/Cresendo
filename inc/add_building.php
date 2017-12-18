@@ -6,16 +6,24 @@ function operation($room_capacity){
     try {
 
 
-            $id = uniqid();
+           // $id = uniqid();
 
-            $con = connect();
+
+        $con = connect();
+        $result1= mysqli_query($con, "SELECT Get_total_rooms() as total");
+        $data = mysqli_fetch_assoc($result1);
+        $id = $data['total']+1 ;
+      
+
+        $id='R'.$id;
+
             $stmt = $con->prepare("INSERT INTO Class_room(Class_room_id,Capacity) VALUES (?,?)");
             $stmt->bind_param("ss", $id, $room_capacity);
             $stmt->execute();
             $stmt->close();
             $con->close();
             echo "<script>alert('Successfully Entered new Classroom Details!')</script>";
-            echo "<script>window.open('main_admin_window.php','_self')</script>";
+           // echo "<script>window.open('main_admin_window.php','_self')</script>";
 
 
     } catch (mysqli_sql_exception $e){
