@@ -53,7 +53,7 @@ $_SESSION['LOGIN_TIME']=time();
 
             <tr>
                 <th>Student_ID</th>
-                <th>Grade</th>
+                <th>Marks</th>
             </tr>
 
             <tbody>
@@ -82,7 +82,7 @@ $_SESSION['LOGIN_TIME']=time();
 
     </form>
 </div>
-<a href="main_admin_window.php">Go Back to Home</a>
+<a href="main_teacher_window.php">Go Back to Home</a>
 
 </body>
 

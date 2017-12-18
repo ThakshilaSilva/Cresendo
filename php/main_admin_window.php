@@ -155,7 +155,7 @@ $_SESSION['LOGIN_TIME']=time();
             <div class="form-log-in-with-email">
 
 
-            <div class="button_list1">
+            <div class="button_list2">
 
                 <div class="form-row">
                     <a href="pay_register_fee.php" target="_self"  style="text-decoration:none;" target="_blank"><input  type='button' name='regbutton' value='Register Fee Payment'></a>

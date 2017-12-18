@@ -16,8 +16,7 @@ function findExamID($class_id,$exam_title,$teacher_id){
     $stmt1->close();
 
     if($teacher == $teacher_id) {
-        echo $teacher_id;
-        echo $teacher;
+
 
         $stmt = $con->prepare("SELECT Exam_id from exam WHERE Class_id=? and Exam_Title=?");
         $stmt->bind_param("is", $class_id, $exam_title);

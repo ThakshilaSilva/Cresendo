@@ -108,7 +108,7 @@ if(isset($_GET['create'])) {
             echo "<script>window.open('generate-certificate.php','_self') </script>";
         }
 
-        require("../fpdf.php");
+        require("../pdf/fpdf.php");
         $pdf = new FPDF();
         $pdf->AddPage();
         // Set font
